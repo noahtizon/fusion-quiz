@@ -121,6 +121,32 @@ let scores = {
     connector: 0
 };
 
+// Google Forms tracking configuration
+const TRACKING_CONFIG = {
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
+    archetypeEntry: 'entry.1977860921',
+    timestampEntry: 'entry.863719100'
+};
+
+// Submit result to Google Form
+async function submitToGoogleForm(resultType) {
+    try {
+        const formData = new FormData();
+        formData.append(TRACKING_CONFIG.archetypeEntry, resultType);
+        formData.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
+        
+        await fetch(TRACKING_CONFIG.formUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+        
+        console.log('✅ Result submitted to Google Form');
+    } catch (error) {
+        console.warn('❌ Form submission failed:', error);
+    }
+}
+
 // DOM Elements
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
@@ -213,6 +239,9 @@ function showResults() {
     );
     
     const result = archetypes[resultType];
+    
+    // Submit result to Google Form
+    submitToGoogleForm(resultType);
     
     // Update result display
     document.getElementById('result-icon').textContent = result.icon;
