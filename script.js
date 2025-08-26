@@ -43,7 +43,7 @@ const questions = [
     {
         question: "What kind of event would you not want to miss at FUSION?",
         answers: [
-            { text: "Build nights or project showcases", type: "builder" },
+            { text: "Build nights or FUSIONCon", type: "builder" },
             { text: "Networking nights with alumni or recruiters", type: "networker" },
             { text: "Late night study sessions during finals week", type: "academic" },
             { text: "Social retreats or FU-Fridays", type: "social" },
