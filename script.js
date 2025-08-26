@@ -125,7 +125,7 @@ let scores = {
 const TRACKING_CONFIG = {
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
     archetypeEntry: 'entry.1977860921',
-    timestampEntry: 'entry.863719100'
+    timestampEntry: 'entry.863719100_sentinel'  // Including the _sentinel part
 };
 
 // Submit result to Google Form (using exact same pattern as your working code)
