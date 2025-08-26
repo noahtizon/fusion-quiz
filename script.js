@@ -93,7 +93,7 @@ const archetypes = {
         subtitle: "You're locked in. You're focused on school, mastering your craft, and staying ahead academically.",
         icon: "📚",
         description: "You're the definition of academic excellence and intellectual curiosity. Your dedication to learning and mastering your craft sets you apart. You thrive in structured learning environments and are always seeking to deepen your knowledge. Whether it's late-night study sessions or diving deep into complex topics, you approach education with passion and discipline. Your commitment to excellence inspires others around you.",
-        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship", "Finals Study Groups"]
+        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship Program", "Finals Study Groups"]
     },
     social: {
         title: "The Social Butterfly",
