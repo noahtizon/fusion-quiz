@@ -35,7 +35,7 @@ const questions = [
         answers: [
             { text: "Messing with a side project or hobby", type: "builder" },
             { text: "Going to a free dinner for a company event", type: "networker" },
-            { text: "Study group at Langson with snacks", type: "academic" },
+            { text: "Study group at a cafe with snacks", type: "academic" },
             { text: "Attending an IM game then going to Seaside", type: "social" },
             { text: "Dinner and games with your closest friends", type: "connector" }
         ]
@@ -47,7 +47,7 @@ const questions = [
             { text: "Networking nights with alumni or recruiters", type: "networker" },
             { text: "Late night study sessions during finals week", type: "academic" },
             { text: "Social retreats or FU-Fridays", type: "social" },
-            { text: "Cultural nights or fam reveal", type: "connector" }
+            { text: "Fam or mentorship reveal", type: "connector" }
         ]
     },
     {
@@ -79,25 +79,25 @@ const archetypes = {
         subtitle: "You learn by doing. You're all about projects, problem-solving, and building things from the ground up.",
         icon: "🔧",
         description: "You're the hands-on problem solver who thrives on creating, building, and making ideas come to life. Whether it's coding a new app, designing a system, or working with your hands, you find fulfillment in the process of creation. You learn best through experimentation and aren't afraid to get your hands dirty. Your practical approach to challenges makes you invaluable in any team, and you're always looking for the next project to tackle.",
-        programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "Build Nights", "Project Showcases"]
+        programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "Build Meetings", "FUSIONCon"]
     },
     networker: {
         title: "The Networker",
-        subtitle: "You're the LinkedIn warrior, chasing opportunities, career growth, and making connections wherever you go.",
+        subtitle: "You're the LinkedIn warrior, chasing opportunities, career growth, and making connections wherever you go. Probably has 500+ connections.",
         icon: "🤝",
         description: "You understand that success is built on relationships and opportunities. You're always thinking about the next connection, the next opportunity, or how to level up your career game. You see the value in every conversation and have a natural ability to build bridges between people and ideas. Your strategic mindset and people skills make you a natural leader and connector in any professional setting.",
         programs: ["Professional Workshops", "Alumni Networking", "Career Development Sessions", "Industry Meetups", "Leadership Training"]
     },
     academic: {
         title: "The Academic Weapon",
-        subtitle: "Your grind never stops. You're focused on school, mastering your craft, and staying ahead academically.",
+        subtitle: "You're locked in. You're focused on school, mastering your craft, and staying ahead academically.",
         icon: "📚",
         description: "You're the definition of academic excellence and intellectual curiosity. Your dedication to learning and mastering your craft sets you apart. You thrive in structured learning environments and are always seeking to deepen your knowledge. Whether it's late-night study sessions or diving deep into complex topics, you approach education with passion and discipline. Your commitment to excellence inspires others around you.",
-        programs: ["Study Hours", "Academic Workshops", "Research Opportunities", "Tutoring Programs", "Finals Study Groups"]
+        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship", "Finals Study Groups"]
     },
     social: {
         title: "The Social Butterfly",
-        subtitle: "Big group energy is your thing. You thrive on socials, retreats, and any chance to meet new people and make memories.",
+        subtitle: "Big group energy is your thing. You thrive on big social events, and any chance to meet new people and make memories.",
         icon: "🎉",
         description: "You're the life of the party and the glue that brings people together. Your energy is infectious, and you have a natural talent for creating fun, memorable experiences for everyone around you. You thrive in group settings and are always up for the next adventure or social gathering. Your enthusiasm and ability to make others feel included creates lasting bonds and unforgettable moments.",
         programs: ["FU-Fridays", "Social Retreats", "FU-Fit/Intramurals", "Community Events", "Game Nights"]
@@ -106,8 +106,8 @@ const archetypes = {
         title: "The Connector",
         subtitle: "You're the heart of the community, fostering close relationships while celebrating cultural pride and shared identity.",
         icon: "❤️",
-        description: "You're the emotional backbone of your community, creating deep, meaningful connections and fostering a sense of belonging for everyone. You understand the importance of cultural identity and work to ensure everyone feels seen, heard, and valued. Your empathy and genuine care for others creates safe spaces where authentic relationships can flourish. You're not just building a network—you're building a family.",
-        programs: ["FUSION Families", "Mentorship Programs", "Cultural Workshops", "Alyansa Programs", "Community Building Events"]
+        description: "You're the emotional backbone of your community, creating deep, meaningful connections and fostering a sense of belonging for everyone. You understand the importance of cultural identity and work to ensure everyone feels seen, heard, and valued. Your empathy and genuine care for others creates safe spaces where authentic relationships can flourish.",
+        programs: ["FUSION Families", "Mentorship Program", "Cultural Workshops", "Alyansa Programs", "Community Building Events"]
     }
 };
 
