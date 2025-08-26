@@ -131,19 +131,56 @@ const TRACKING_CONFIG = {
 // Submit result to Google Form
 async function submitToGoogleForm(resultType) {
     try {
-        const formData = new FormData();
-        formData.append(TRACKING_CONFIG.archetypeEntry, resultType);
-        formData.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
+        // Method 1: Try with URL parameters (often works better)
+        const params = new URLSearchParams();
+        params.append(TRACKING_CONFIG.archetypeEntry, resultType);
+        params.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
         
-        await fetch(TRACKING_CONFIG.formUrl, {
+        const submitUrl = TRACKING_CONFIG.formUrl + '?' + params.toString();
+        
+        await fetch(submitUrl, {
             method: 'POST',
-            body: formData,
             mode: 'no-cors'
         });
         
         console.log('✅ Result submitted to Google Form');
     } catch (error) {
-        console.warn('❌ Form submission failed:', error);
+        console.warn('❌ Method 1 failed, trying method 2:', error);
+        
+        // Method 2: Fallback with FormData
+        try {
+            const formData = new FormData();
+            formData.append(TRACKING_CONFIG.archetypeEntry, resultType);
+            formData.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
+            
+            await fetch(TRACKING_CONFIG.formUrl, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            });
+            
+            console.log('✅ Result submitted to Google Form (method 2)');
+        } catch (error2) {
+            console.warn('❌ Both methods failed:', error2);
+            
+            // Method 3: Simple GET request (last resort)
+            try {
+                const params = new URLSearchParams();
+                params.append(TRACKING_CONFIG.archetypeEntry, resultType);
+                params.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
+                
+                const getUrl = TRACKING_CONFIG.formUrl + '?' + params.toString();
+                
+                await fetch(getUrl, {
+                    method: 'GET',
+                    mode: 'no-cors'
+                });
+                
+                console.log('✅ Result submitted to Google Form (method 3)');
+            } catch (error3) {
+                console.warn('❌ All methods failed. Check form configuration.');
+            }
+        }
     }
 }
 
