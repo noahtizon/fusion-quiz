@@ -1,0 +1,13 @@
+LOGO SETUP INSTRUCTIONS:
+
+To complete the quiz setup, please add your FUSION logo as "fusion-logo.png" in this directory.
+
+The logo should be:
+- PNG format
+- Square aspect ratio (recommended 120x120px or larger)
+- Transparent background preferred
+- High quality/resolution for crisp display
+
+The HTML will automatically hide the logo if the file is not found, so the quiz will still work without it.
+
+Alternative: You can also update the src attribute in index.html to point to your logo file if it has a different name or location.
