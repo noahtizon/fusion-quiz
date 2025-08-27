@@ -113,6 +113,7 @@ const archetypes = {
 
 // Quiz State
 let currentQuestion = 0;
+let userAnswers = []; // Track user answers for back functionality
 let scores = {
     builder: 0,
     networker: 0,
@@ -171,6 +172,7 @@ function startQuiz() {
     startScreen.classList.remove('active');
     quizScreen.classList.add('active');
     currentQuestion = 0;
+    userAnswers = [];
     scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
     
     // Shuffle answers for each question to prevent predictable patterns
@@ -189,6 +191,14 @@ function showQuestion() {
     const progress = ((currentQuestion + 1) / questions.length) * 100;
     progressFill.style.width = progress + '%';
     progressText.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+    
+    // Show/hide back button
+    const backBtn = document.getElementById('back-btn');
+    if (currentQuestion > 0) {
+        backBtn.style.display = 'block';
+    } else {
+        backBtn.style.display = 'none';
+    }
     
     // Clear previous answers
     answersContainer.innerHTML = '';
@@ -212,7 +222,14 @@ function showQuestion() {
 }
 
 function selectAnswer(type) {
-    scores[type]++;
+    // Store the answer
+    userAnswers[currentQuestion] = type;
+    
+    // Update scores (recalculate from all stored answers)
+    scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
+    userAnswers.forEach(answer => {
+        if (answer) scores[answer]++;
+    });
     
     // Add selection animation
     const selectedBtn = event.target;
@@ -227,6 +244,13 @@ function selectAnswer(type) {
             showResults();
         }
     }, 300);
+}
+
+function goBack() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion();
+    }
 }
 
 function showResults() {
@@ -312,6 +336,7 @@ function retakeQuiz() {
     
     // Reset quiz state
     currentQuestion = 0;
+    userAnswers = [];
     scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
     progressFill.style.width = '0%';
 }

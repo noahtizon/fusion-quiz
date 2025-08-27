@@ -6,39 +6,19 @@
     <title>FUSION Personality Quiz</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="fusion-logo.png" />
 </head>
 <body>
     <div class="quiz-container">
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <div class="logo-container">
-                <img src="fusion-logo.png" alt="FUSION Logo" class="fusion-logo" onerror="this.style.display='none';">
+                <div class="fusion-logo">
+                    <div class="gear-part"></div>
+                    <div class="sun-part"></div>
+                </div>
             </div>
             <h1>Which FUSION Archetype Are You?</h1>
-            <p class="subtitle">Discover your personality type and find your perfect FUSION programs!</p>
-            <div class="archetype-preview">
-                <div class="archetype-card">
-                    <div class="icon builder-icon">🔧</div>
-                    <span>The Builder</span>
-                </div>
-                <div class="archetype-card">
-                    <div class="icon networker-icon">🤝</div>
-                    <span>The Networker</span>
-                </div>
-                <div class="archetype-card">
-                    <div class="icon academic-icon">📚</div>
-                    <span>The Academic Weapon</span>
-                </div>
-                <div class="archetype-card">
-                    <div class="icon social-icon">🎉</div>
-                    <span>The Social Butterfly</span>
-                </div>
-                <div class="archetype-card">
-                    <div class="icon connector-icon">❤️</div>
-                    <span>The Connector</span>
-                </div>
-            </div>
+            <p class="subtitle">Take this personality quiz to discover your perfect FUSION programs!</p>
             <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
         </div>
 
@@ -55,6 +35,9 @@
                 <h2 id="question-text"></h2>
                 <div class="answers-container" id="answers-container">
                     <!-- Answers will be populated by JavaScript -->
+                </div>
+                <div class="quiz-navigation">
+                    <button class="back-btn" id="back-btn" onclick="goBack()" style="display: none;">← Back</button>
                 </div>
             </div>
         </div>
@@ -87,6 +70,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Credit -->
+    <div class="credit">Made by Noah Tizon</div>
 
     <script src="script.js"></script>
 </body>
