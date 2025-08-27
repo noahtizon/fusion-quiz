@@ -199,8 +199,16 @@ function showQuestion() {
         backBtn.style.display = 'none';
     }
     
-    // Clear previous answers
+    // Clear previous answers and reset any stuck styles
     answersContainer.innerHTML = '';
+    
+    // Clear any stuck hover/active states on mobile
+    document.querySelectorAll('.answer-btn').forEach(btn => {
+        btn.blur();
+        btn.style.background = '';
+        btn.style.transform = '';
+        btn.style.borderColor = '';
+    });
     
     // Use shuffled answers to prevent predictable patterns
     const answersToShow = question.shuffledAnswers || question.answers;

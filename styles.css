@@ -359,23 +359,26 @@ h1 {
     font-weight: bold;
 }
 
-.answer-btn:hover {
-    background: linear-gradient(145deg, #ffffff, #f8f9fa);
-    border-color: var(--fusion-yellow);
-    transform: translateX(8px) scale(1.01);
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.1),
-        0 0 0 1px var(--fusion-yellow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
+/* Only apply hover effects on devices that can actually hover */
+@media (hover: hover) and (pointer: fine) {
+    .answer-btn:hover {
+        background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        border-color: var(--fusion-yellow);
+        transform: translateX(8px) scale(1.01);
+        box-shadow: 
+            0 8px 25px rgba(0, 0, 0, 0.1),
+            0 0 0 1px var(--fusion-yellow),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
 
-.answer-btn:hover::before {
-    left: 100%;
-}
+    .answer-btn:hover::before {
+        left: 100%;
+    }
 
-.answer-btn:hover::after {
-    opacity: 1;
-    transform: translateY(-50%) translateX(5px);
+    .answer-btn:hover::after {
+        opacity: 1;
+        transform: translateY(-50%) translateX(5px);
+    }
 }
 
 /* Quiz Navigation */
