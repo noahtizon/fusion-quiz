@@ -3,59 +3,68 @@ const questions = [
     {
         question: "If you could get one of these right now, what would it be?",
         answers: [
-            { text: "A new tool or gadget you've been eyeing", type: "builder" },
+            { text: "A solo recharge day where you're productive but relaxed", type: "builder" },
             { text: "A coffee chat with a CEO", type: "networker" },
             { text: "A 4.0 GPA", type: "academic" },
+            { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
+            { text: "Coffee chat with the CEO of your dream company", type: "networker" },
+            { text: "Instant 4.0 GPA", type: "academic" },
             { text: "Tickets to a big concert", type: "social" },
-            { text: "A giant family-style dinner with friends", type: "connector" }
+            { text: "All you can eat dinner with friends", type: "connector" }
         ]
     },
     {
-        question: "How would you actually spend an extra $1000?",
+        question: "What makes a hangout go from good to great?",
         answers: [
-            { text: "Finally upgrade your setup - laptop, monitor, or parts", type: "builder" },
-            { text: "Travel to a new city for a trip", type: "networker" },
-            { text: "Knock out tuition/books so you can stress less later", type: "academic" },
-            { text: "Split it with friends for a weekend trip", type: "social" },
-            { text: "Treat your friends or family to something nice", type: "connector" }
+            { text: "Talking about a random topic you're all passionate about", type: "builder" },
+            { text: "Discussing your life goals and hopes for the future", type: "networker" },
+            { text: "Feeling productive while still spending time with others", type: "academic" },
+            { text: "Bonding because you're all struggling together", type: "academic" },
+            { text: "Being spontaneous and high energy", type: "social" },
+            { text: "Inside jokes and being comfortable", type: "connector" }
         ]
     },
     {
         question: "In a group project, what role do you naturally end up in?",
         answers: [
-            { text: "The one doing all the actual work", type: "builder" },
+            { text: "The one who will do the whole thing the night before", type: "builder" },
             { text: "The one keeping everyone connected and on task", type: "networker" },
-            { text: "The one doing the detailed research or writing", type: "academic" },
+            { text: "The one who will do their part the night before", type: "builder" },
+            { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
+            { text: "The one doing most of the actual work", type: "academic" },
             { text: "The one making it fun and keeping energy up", type: "social" },
             { text: "The one checking in on people and making sure no one feels left out", type: "connector" }
+            { text: "The one checking in on people and making everyone's on task", type: "connector" }
         ]
     },
     {
         question: "It's Friday night — what sounds best?",
         answers: [
-            { text: "Messing with a side project or hobby", type: "builder" },
-            { text: "Going to a free dinner for a company event", type: "networker" },
-            { text: "Study group at a cafe with snacks", type: "academic" },
-            { text: "Attending an IM game then going to Seaside", type: "social" },
+            { text: "Having a chill night in and spending time on a hobby", type: "builder" },
+            { text: "Catching up with someone who inspires you", type: "networker" },
+            { text: "Getting ahead on work so you can actually relax the rest of the weekend", type: "academic" },
+            { text: "A spontaneous hangout with a big group", type: "social" },
             { text: "Dinner and games with your closest friends", type: "connector" }
         ]
     },
     {
-        question: "What kind of event would you not want to miss at FUSION?",
+        question: "Which message would you be most excited to receive?",
         answers: [
-            { text: "Build nights or FUSIONCon", type: "builder" },
-            { text: "Networking nights with alumni or recruiters", type: "networker" },
-            { text: "Late night study sessions during finals week", type: "academic" },
-            { text: "Social retreats or FU-Fridays", type: "social" },
-            { text: "Fam or mentorship reveal", type: "connector" }
+            { text: "I got this idea for a project, want to hear?", type: "builder" },
+            { text: "My cousin's company just opened internships, are you interested?", type: "networker" },
+            { text: "THE FINAL GOT CANCELLED", type: "academic" },
+            { text: "Seaside?", type: "social" },
+            { text: "Hey! Just wanted to check in on how you were doing!", type: "connector" }
         ]
     },
     {
         question: "When people come to you for help, it's usually for…",
         answers: [
             { text: "Fixing or figuring out some technical thing", type: "builder" },
+            { text: "Figuring something out or making sense of a problem", type: "builder" },
             { text: "Advice on jobs, clubs, or opportunities", type: "networker" },
             { text: "Study help or academic tips", type: "academic" },
+            { text: "Questions about the homework or upcoming midterm", type: "academic" },
             { text: "Planning what to do this weekend", type: "social" },
             { text: "Talking things out or needing support", type: "connector" }
         ]
@@ -66,12 +75,13 @@ const questions = [
             { text: "Getting to create and learn new skills", type: "builder" },
             { text: "Opportunities and growth", type: "networker" },
             { text: "Academic focus and resources", type: "academic" },
+            { text: "Academic resources and being around people with similar goals", type: "academic" },
             { text: "Fun memories and big shared experiences", type: "social" },
             { text: "Belonging and shared culture", type: "connector" }
+            { text: "Close-knit community and shared culture", type: "connector" }
         ]
     }
 ];
-
 // Archetype Data
 const archetypes = {
     builder: {
