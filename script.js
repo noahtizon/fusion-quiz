@@ -199,6 +199,15 @@ function showQuestion() {
         backBtn.style.display = 'none';
     }
     
+    // Clear any stuck hover/active states on mobile BEFORE clearing content
+    document.querySelectorAll('.answer-btn').forEach(btn => {
+        btn.blur();
+        btn.style.background = '';
+        btn.style.transform = '';
+        btn.style.borderColor = '';
+        btn.style.boxShadow = '';
+    });
+    
     // Clear previous answers
     answersContainer.innerHTML = '';
     
@@ -212,17 +221,20 @@ function showQuestion() {
         button.textContent = answer.text;
         button.onclick = () => selectAnswer(answer.type);
         
+        // Ensure clean initial state for mobile
+        button.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.blur();
+                this.style.background = '';
+                this.style.transform = '';
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            }, 100);
+        });
+        
         // Add button immediately without delay
         answersContainer.appendChild(button);
         button.style.animation = `fadeIn 0.3s ease-in-out both`;
-    });
-    
-    // Clear any stuck hover/active states on mobile (only for answer buttons, not back button)
-    document.querySelectorAll('.answer-btn').forEach(btn => {
-        btn.blur();
-        btn.style.background = '';
-        btn.style.transform = '';
-        btn.style.borderColor = '';
     });
 }
 
