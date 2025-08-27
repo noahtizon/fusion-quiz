@@ -211,6 +211,10 @@ function showQuestion() {
         button.className = 'answer-btn';
         button.textContent = answer.text;
         button.onclick = () => selectAnswer(answer.type);
+        
+        // Add button immediately without delay
+        answersContainer.appendChild(button);
+        button.style.animation = `fadeIn 0.3s ease-in-out both`;
     });
 }
 
