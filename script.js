@@ -45,9 +45,9 @@ const questions = [
         answers: [
             { text: "I got this idea for a project, want to hear?", type: "builder" },
             { text: "My cousin's company just opened internships, are you interested?", type: "networker" },
-            { text: "THE FINAL GOT CANCELLED", type: "academic" },
+            { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside?", type: "social" },
-            { text: "Hey! Just wanted to check in on how you were doing!", type: "connector" }
+            { text: "Hey! Just wanted to check in on how you were doing?", type: "connector" }
         ]
     },
     {
@@ -211,12 +211,6 @@ function showQuestion() {
         button.className = 'answer-btn';
         button.textContent = answer.text;
         button.onclick = () => selectAnswer(answer.type);
-        
-        // Add slight delay for animation
-        setTimeout(() => {
-            answersContainer.appendChild(button);
-            button.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.1}s both`;
-        }, index * 100);
     });
 }
 
