@@ -3,9 +3,6 @@ const questions = [
     {
         question: "If you could get one of these right now, what would it be?",
         answers: [
-            { text: "A solo recharge day where you're productive but relaxed", type: "builder" },
-            { text: "A coffee chat with a CEO", type: "networker" },
-            { text: "A 4.0 GPA", type: "academic" },
             { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
             { text: "Coffee chat with the CEO of your dream company", type: "networker" },
             { text: "Instant 4.0 GPA", type: "academic" },
@@ -18,7 +15,6 @@ const questions = [
         answers: [
             { text: "Talking about a random topic you're all passionate about", type: "builder" },
             { text: "Discussing your life goals and hopes for the future", type: "networker" },
-            { text: "Feeling productive while still spending time with others", type: "academic" },
             { text: "Bonding because you're all struggling together", type: "academic" },
             { text: "Being spontaneous and high energy", type: "social" },
             { text: "Inside jokes and being comfortable", type: "connector" }
@@ -27,13 +23,10 @@ const questions = [
     {
         question: "In a group project, what role do you naturally end up in?",
         answers: [
-            { text: "The one who will do the whole thing the night before", type: "builder" },
-            { text: "The one keeping everyone connected and on task", type: "networker" },
             { text: "The one who will do their part the night before", type: "builder" },
             { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
             { text: "The one doing most of the actual work", type: "academic" },
             { text: "The one making it fun and keeping energy up", type: "social" },
-            { text: "The one checking in on people and making sure no one feels left out", type: "connector" },
             { text: "The one checking in on people and making everyone's on task", type: "connector" }
         ]
     },
@@ -60,10 +53,8 @@ const questions = [
     {
         question: "When people come to you for help, it's usually for…",
         answers: [
-            { text: "Fixing or figuring out some technical thing", type: "builder" },
             { text: "Figuring something out or making sense of a problem", type: "builder" },
             { text: "Advice on jobs, clubs, or opportunities", type: "networker" },
-            { text: "Study help or academic tips", type: "academic" },
             { text: "Questions about the homework or upcoming midterm", type: "academic" },
             { text: "Planning what to do this weekend", type: "social" },
             { text: "Talking things out or needing support", type: "connector" }
@@ -74,10 +65,8 @@ const questions = [
         answers: [
             { text: "Getting to create and learn new skills", type: "builder" },
             { text: "Opportunities and growth", type: "networker" },
-            { text: "Academic focus and resources", type: "academic" },
             { text: "Academic resources and being around people with similar goals", type: "academic" },
             { text: "Fun memories and big shared experiences", type: "social" },
-            { text: "Belonging and shared culture", type: "connector" },
             { text: "Close-knit community and shared culture", type: "connector" }
         ]
     }
