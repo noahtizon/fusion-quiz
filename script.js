@@ -33,7 +33,7 @@ const questions = [
             { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
             { text: "The one doing most of the actual work", type: "academic" },
             { text: "The one making it fun and keeping energy up", type: "social" },
-            { text: "The one checking in on people and making sure no one feels left out", type: "connector" }
+            { text: "The one checking in on people and making sure no one feels left out", type: "connector" },
             { text: "The one checking in on people and making everyone's on task", type: "connector" }
         ]
     },
@@ -77,7 +77,7 @@ const questions = [
             { text: "Academic focus and resources", type: "academic" },
             { text: "Academic resources and being around people with similar goals", type: "academic" },
             { text: "Fun memories and big shared experiences", type: "social" },
-            { text: "Belonging and shared culture", type: "connector" }
+            { text: "Belonging and shared culture", type: "connector" },
             { text: "Close-knit community and shared culture", type: "connector" }
         ]
     }
