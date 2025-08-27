@@ -199,16 +199,8 @@ function showQuestion() {
         backBtn.style.display = 'none';
     }
     
-    // Clear previous answers and reset any stuck styles
+    // Clear previous answers
     answersContainer.innerHTML = '';
-    
-    // Clear any stuck hover/active states on mobile
-    document.querySelectorAll('.answer-btn').forEach(btn => {
-        btn.blur();
-        btn.style.background = '';
-        btn.style.transform = '';
-        btn.style.borderColor = '';
-    });
     
     // Use shuffled answers to prevent predictable patterns
     const answersToShow = question.shuffledAnswers || question.answers;
@@ -223,6 +215,14 @@ function showQuestion() {
         // Add button immediately without delay
         answersContainer.appendChild(button);
         button.style.animation = `fadeIn 0.3s ease-in-out both`;
+    });
+    
+    // Clear any stuck hover/active states on mobile (only for answer buttons, not back button)
+    document.querySelectorAll('.answer-btn').forEach(btn => {
+        btn.blur();
+        btn.style.background = '';
+        btn.style.transform = '';
+        btn.style.borderColor = '';
     });
 }
 
