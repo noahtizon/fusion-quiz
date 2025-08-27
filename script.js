@@ -199,15 +199,6 @@ function showQuestion() {
         backBtn.style.display = 'none';
     }
     
-    // Clear any stuck hover/active states on mobile BEFORE clearing content
-    document.querySelectorAll('.answer-btn').forEach(btn => {
-        btn.blur();
-        btn.style.background = '';
-        btn.style.transform = '';
-        btn.style.borderColor = '';
-        btn.style.boxShadow = '';
-    });
-    
     // Clear previous answers
     answersContainer.innerHTML = '';
     
@@ -220,17 +211,6 @@ function showQuestion() {
         button.className = 'answer-btn';
         button.textContent = answer.text;
         button.onclick = () => selectAnswer(answer.type);
-        
-        // Ensure clean initial state for mobile
-        button.addEventListener('touchend', function() {
-            setTimeout(() => {
-                this.blur();
-                this.style.background = '';
-                this.style.transform = '';
-                this.style.borderColor = '';
-                this.style.boxShadow = '';
-            }, 100);
-        });
         
         // Add button immediately without delay
         answersContainer.appendChild(button);
