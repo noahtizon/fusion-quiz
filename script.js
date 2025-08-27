@@ -338,9 +338,9 @@ function retakeQuiz() {
     progressFill.style.width = '0%';
 }
 
-// Add some interactive effects
+// Interactive Effects & Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click sound effect (optional)
+    // Add click animation to all buttons
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add keyboard navigation
+    // Keyboard navigation for quiz answers (1-5 keys)
     document.addEventListener('keydown', function(e) {
         if (quizScreen.classList.contains('active')) {
             const answerButtons = document.querySelectorAll('.answer-btn');
@@ -363,15 +363,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // Add some fun animations to the logo
-    const logo = document.querySelector('.fusion-logo');
-    if (logo) {
-        logo.addEventListener('click', function() {
-            this.style.animation = 'none';
-            setTimeout(() => {
-                this.style.animation = 'rotate 2s linear infinite';
-            }, 100);
-        });
-    }
 });
