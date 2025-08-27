@@ -3,59 +3,59 @@ const questions = [
     {
         question: "If you could get one of these right now, what would it be?",
         answers: [
-            { text: "A new tool or gadget you've been eyeing", type: "builder" },
-            { text: "A coffee chat with a CEO", type: "networker" },
-            { text: "A 4.0 GPA", type: "academic" },
+            { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
+            { text: "Coffee chat with the CEO of your dream company", type: "networker" },
+            { text: "Instant 4.0 GPA", type: "academic" },
             { text: "Tickets to a big concert", type: "social" },
-            { text: "A giant family-style dinner with friends", type: "connector" }
+            { text: "All you can eat dinner with friends", type: "connector" }
         ]
     },
     {
-        question: "How would you actually spend an extra $1000?",
+        question: "What makes a hangout go from good to great?",
         answers: [
-            { text: "Finally upgrade your setup - laptop, monitor, or parts", type: "builder" },
-            { text: "Travel to a new city for a trip", type: "networker" },
-            { text: "Knock out tuition/books so you can stress less later", type: "academic" },
-            { text: "Split it with friends for a weekend trip", type: "social" },
-            { text: "Treat your friends or family to something nice", type: "connector" }
+            { text: "Talking about a random topic you're all passionate about", type: "builder" },
+            { text: "Discussing your life goals and hopes for the future", type: "networker" },
+            { text: "Bonding because you're all struggling together", type: "academic" },
+            { text: "Being spontaneous and high energy", type: "social" },
+            { text: "Inside jokes and being comfortable", type: "connector" }
         ]
     },
     {
         question: "In a group project, what role do you naturally end up in?",
         answers: [
-            { text: "The one doing all the actual work", type: "builder" },
-            { text: "The one keeping everyone connected and on task", type: "networker" },
-            { text: "The one doing the detailed research or writing", type: "academic" },
+            { text: "The one who will do their part the night before", type: "builder" },
+            { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
+            { text: "The one doing most of the actual work", type: "academic" },
             { text: "The one making it fun and keeping energy up", type: "social" },
-            { text: "The one checking in on people and making sure no one feels left out", type: "connector" }
+            { text: "The one checking in on people and making everyone's on task", type: "connector" }
         ]
     },
     {
         question: "It's Friday night — what sounds best?",
         answers: [
-            { text: "Messing with a side project or hobby", type: "builder" },
-            { text: "Going to a free dinner for a company event", type: "networker" },
-            { text: "Study group at a cafe with snacks", type: "academic" },
-            { text: "Attending an IM game then going to Seaside", type: "social" },
+            { text: "Having a chill night in and spending time on a hobby", type: "builder" },
+            { text: "Catching up with someone who inspires you", type: "networker" },
+            { text: "Getting ahead on work so you can actually relax the rest of the weekend", type: "academic" },
+            { text: "A spontaneous hangout with a big group", type: "social" },
             { text: "Dinner and games with your closest friends", type: "connector" }
         ]
     },
     {
-        question: "What kind of event would you not want to miss at FUSION?",
+        question: "Which message would you be most excited to receive?",
         answers: [
-            { text: "Build nights or FUSIONCon", type: "builder" },
-            { text: "Networking nights with alumni or recruiters", type: "networker" },
-            { text: "Late night study sessions during finals week", type: "academic" },
-            { text: "Social retreats or FU-Fridays", type: "social" },
-            { text: "Fam or mentorship reveal", type: "connector" }
+            { text: "I got this idea for a project, want to hear?", type: "builder" },
+            { text: "My cousin's company just opened internships, are you interested?", type: "networker" },
+            { text: "THE FINAL GOT CANCELLED", type: "academic" },
+            { text: "Seaside?", type: "social" },
+            { text: "Hey! Just wanted to check in on how you were doing!", type: "connector" }
         ]
     },
     {
         question: "When people come to you for help, it's usually for…",
         answers: [
-            { text: "Fixing or figuring out some technical thing", type: "builder" },
+            { text: "Figuring something out or making sense of a problem", type: "builder" },
             { text: "Advice on jobs, clubs, or opportunities", type: "networker" },
-            { text: "Study help or academic tips", type: "academic" },
+            { text: "Questions about the homework or upcoming midterm", type: "academic" },
             { text: "Planning what to do this weekend", type: "social" },
             { text: "Talking things out or needing support", type: "connector" }
         ]
@@ -65,9 +65,9 @@ const questions = [
         answers: [
             { text: "Getting to create and learn new skills", type: "builder" },
             { text: "Opportunities and growth", type: "networker" },
-            { text: "Academic focus and resources", type: "academic" },
+            { text: "Academic resources and being around people with similar goals", type: "academic" },
             { text: "Fun memories and big shared experiences", type: "social" },
-            { text: "Belonging and shared culture", type: "connector" }
+            { text: "Close-knit community and shared culture", type: "connector" }
         ]
     }
 ];
@@ -83,31 +83,31 @@ const archetypes = {
     },
     networker: {
         title: "The Networker",
-        subtitle: "You're the LinkedIn warrior, chasing opportunities, career growth, and making connections wherever you go. Probably has 500+ connections.",
+        subtitle: "You're the LinkedIn warrior, chasing opportunities, career growth, and making connections wherever you go. Probably have 500+ connections.",
         icon: "🤝",
         description: "You understand that success is built on relationships and opportunities. You're always thinking about the next connection, the next opportunity, or how to level up your career game. You see the value in every conversation and have a natural ability to build bridges between people and ideas. Your strategic mindset and people skills make you a natural leader and connector in any professional setting.",
-        programs: ["Professional Workshops", "Alumni Networking", "Career Development Sessions", "Industry Meetups", "Leadership Training"]
+        programs: ["Professional Workshops", "Alumni Networking", "Career Development Sessions", "Industry Meetups", "Internship Program"]
     },
     academic: {
         title: "The Academic Weapon",
         subtitle: "You're locked in. You're focused on school, mastering your craft, and staying ahead academically.",
         icon: "📚",
         description: "You're the definition of academic excellence and intellectual curiosity. Your dedication to learning and mastering your craft sets you apart. You thrive in structured learning environments and are always seeking to deepen your knowledge. Whether it's late-night study sessions or diving deep into complex topics, you approach education with passion and discipline. Your commitment to excellence inspires others around you.",
-        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship Program", "Finals Study Groups"]
+        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship Program", "Study Buddies"]
     },
     social: {
         title: "The Social Butterfly",
         subtitle: "Big group energy is your thing. You thrive on big social events, and any chance to meet new people and make memories.",
         icon: "🎉",
         description: "You're the life of the party and the glue that brings people together. Your energy is infectious, and you have a natural talent for creating fun, memorable experiences for everyone around you. You thrive in group settings and are always up for the next adventure or social gathering. Your enthusiasm and ability to make others feel included creates lasting bonds and unforgettable moments.",
-        programs: ["FU-Fridays", "Social Retreats", "FU-Fit/Intramurals", "Community Events", "Game Nights"]
+        programs: ["FU-Fridays", "Social Retreats", "FU-Fit/Intramurals", "Community Events", "F-TEK"]
     },
     connector: {
         title: "The Connector",
         subtitle: "You're the heart of the community, fostering close relationships while celebrating cultural pride and shared identity.",
         icon: "❤️",
         description: "You're the emotional backbone of your community, creating deep, meaningful connections and fostering a sense of belonging for everyone. You understand the importance of cultural identity and work to ensure everyone feels seen, heard, and valued. Your empathy and genuine care for others creates safe spaces where authentic relationships can flourish.",
-        programs: ["FUSION Families", "Mentorship Program", "Cultural Workshops", "Alyansa Programs", "Community Building Events"]
+        programs: ["FUSION Families", "Mentorship Program", "Cultural Workshops", "Alyansa Programs", "Gaming Nights"]
     }
 };
 
