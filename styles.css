@@ -361,21 +361,23 @@ h1 {
     font-weight: bold;
 }
 
-.answer-btn:hover {
-    background: #ffffff;
-    border-color: var(--fusion-yellow);
-    transform: translateX(8px) scale(1.01);
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.1);
-}
+@media (hover: hover) and (pointer: fine) {
+    .answer-btn:hover {
+        background: #ffffff;
+        border-color: var(--fusion-yellow);
+        transform: translateX(8px) scale(1.01);
+        box-shadow: 
+            0 8px 25px rgba(0, 0, 0, 0.1);
+    }
 
-.answer-btn:hover::before {
-    left: 100%;
-}
+    .answer-btn:hover::before {
+        left: 100%;
+    }
 
-.answer-btn:hover::after {
-    opacity: 1;
-    transform: translateY(-50%) translateX(5px);
+    .answer-btn:hover::after {
+        opacity: 1;
+        transform: translateY(-50%) translateX(5px);
+    }
 }
 
 /* Quiz Navigation */
