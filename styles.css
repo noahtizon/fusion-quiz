@@ -359,50 +359,59 @@ h1 {
     font-weight: bold;
 }
 
-/* Only apply hover effects on devices that can actually hover */
-@media (hover: hover) and (pointer: fine) {
-    .answer-btn:hover {
-        background: linear-gradient(145deg, #ffffff, #f8f9fa);
-        border-color: var(--fusion-yellow);
-        transform: translateX(8px) scale(1.01);
-        box-shadow: 
-            0 8px 25px rgba(0, 0, 0, 0.1),
-            0 0 0 1px var(--fusion-yellow),
-            inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    }
+.answer-btn:hover {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-color: var(--fusion-yellow);
+    transform: translateX(8px) scale(1.01);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 0 0 1px var(--fusion-yellow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
 
-    .answer-btn:hover::before {
-        left: 100%;
-    }
+.answer-btn:hover::before {
+    left: 100%;
+}
 
-    .answer-btn:hover::after {
-        opacity: 1;
-        transform: translateY(-50%) translateX(5px);
-    }
+.answer-btn:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(5px);
 }
 
 /* Quiz Navigation */
 .quiz-navigation {
     margin-top: 2rem;
-    text-align: left;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .back-btn {
-    padding: 0.75rem 1.5rem;
-    background: var(--light-gray);
+    background: transparent;
     border: 2px solid var(--primary-gray);
-    border-radius: var(--border-radius);
-    color: var(--dark-gray);
-    font-weight: 600;
+    color: var(--primary-gray);
+    padding: 12px 24px;
+    border-radius: 25px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
 }
 
-.back-btn:hover {
-    background: var(--primary-gray);
-    color: white;
-    transform: translateX(-3px);
+@media (hover: hover) and (pointer: fine) {
+    .back-btn:hover {
+        background: var(--primary-gray);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(139, 139, 139, 0.3);
+    }
+}
+
+.back-btn:active {
+    transform: translateY(0);
 }
 
 /* Results Screen */

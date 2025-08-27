@@ -296,12 +296,12 @@ function shareResult() {
     if (navigator.share && window.lastResult) {
         navigator.share({
             title: 'My FUSION Personality Quiz Result',
-            text: `I'm ${window.lastResult.title}! ${window.lastResult.subtitle}`,
+            text: `I'm ${window.lastResult.title}!`,
             url: window.location.href
         }).catch(console.error);
     } else {
         // Fallback: copy to clipboard
-        const shareText = `I just took the FUSION Personality Quiz and got ${window.lastResult.title}! ${window.lastResult.subtitle}\n\nTake the quiz: ${window.location.href}`;
+        const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \nTake the quiz: ${window.location.href}`;
         
         if (navigator.clipboard) {
             navigator.clipboard.writeText(shareText).then(() => {
