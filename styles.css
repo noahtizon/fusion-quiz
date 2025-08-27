@@ -297,17 +297,7 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.question-container::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent 70%);
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
-}
+
 
 .question-container::after {
     content: '';
