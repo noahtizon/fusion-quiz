@@ -22,12 +22,22 @@ let scores = {
 // Google Forms tracking configuration
 const TRACKING_CONFIG = CONFIG.googleForms;
 
-// Submit result to Google Form (using exact same pattern as your working code)
+// Submit result to Google Form with individual question tracking
 async function submitToGoogleForm(resultType) {
     try {
         const formData = new FormData();
+        
+        // Submit final archetype result
         formData.append(TRACKING_CONFIG.archetypeEntry, resultType);
         formData.append(TRACKING_CONFIG.timestampEntry, new Date().toISOString());
+        
+        // Submit individual question answers
+        userAnswers.forEach((answer, index) => {
+            const questionKey = `question${index + 1}Entry`;
+            if (TRACKING_CONFIG[questionKey]) {
+                formData.append(TRACKING_CONFIG[questionKey], answer);
+            }
+        });
         
         await fetch(TRACKING_CONFIG.formUrl, {
             method: "POST",
@@ -35,7 +45,7 @@ async function submitToGoogleForm(resultType) {
             body: formData,
         });
         
-        console.log('✅ Result submitted to Google Form');
+        console.log('✅ Result and individual answers submitted to Google Form');
     } catch (error) {
         console.warn('❌ Form submission failed:', error);
     }

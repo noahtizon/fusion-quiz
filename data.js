@@ -96,7 +96,12 @@ export const CONFIG = {
     googleForms: {
         formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
         archetypeEntry: 'entry.1977860921',
-        timestampEntry: 'entry.863719100_sentinel'
+        // Individual question tracking
+        question1Entry: 'entry.1746241827',
+        question2Entry: 'entry.494545951',
+        question3Entry: 'entry.494545951',
+        question4Entry: 'entry.1056565161',
+        question5Entry: 'entry.1904630356'
     },
     quiz: {
         totalQuestions: 5,
