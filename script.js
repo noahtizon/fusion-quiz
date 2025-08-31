@@ -162,21 +162,31 @@ function showResults() {
         // Use the last answer as tie-breaker for 1-1-1-1-1
         resultType = userAnswers[userAnswers.length - 1];
         console.log('1-1-1-1-1 tie detected, using last answer:', resultType);
-    } else {
-        // Find highest score
-        const maxScore = Math.max(...Object.values(scores));
-        const highestScorers = Object.keys(scores).filter(type => scores[type] === maxScore);
-        
-        if (highestScorers.length === 1) {
-            // Clear winner
-            resultType = highestScorers[0];
-            console.log('Clear winner:', resultType, 'with score:', maxScore);
-        } else {
-            // Multiple highest scores (tie) - use last answer as tie-breaker
-            resultType = userAnswers[userAnswers.length - 1];
-            console.log('Tie detected between:', highestScorers, 'using last answer as tie-breaker:', resultType);
+            } else {
+            // Find highest score
+            const maxScore = Math.max(...Object.values(scores));
+            const highestScorers = Object.keys(scores).filter(type => scores[type] === maxScore);
+            
+            if (highestScorers.length === 1) {
+                // Clear winner
+                resultType = highestScorers[0];
+                console.log('Clear winner:', resultType, 'with score:', maxScore);
+            } else {
+                // Multiple highest scores (tie) - find most recent answer from tied categories
+                let mostRecentTiedAnswer = null;
+                
+                // Go through answers from most recent to oldest
+                for (let i = userAnswers.length - 1; i >= 0; i--) {
+                    if (highestScorers.includes(userAnswers[i])) {
+                        mostRecentTiedAnswer = userAnswers[i];
+                        break;
+                    }
+                }
+                
+                resultType = mostRecentTiedAnswer;
+                console.log('Tie detected between:', highestScorers, 'using most recent tied answer as tie-breaker:', resultType);
+            }
         }
-    }
     
     console.log('Final result:', resultType);
     
