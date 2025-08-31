@@ -5,9 +5,9 @@ export const questions = [
         answers: [
             { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
             { text: "Coffee chat with the CEO of your dream company", type: "networker" },
-            { text: "Instant 4.0 GPA", type: "academic" },
-            { text: "Tickets to a big concert", type: "social" },
-            { text: "All you can eat dinner with friends", type: "connector" }
+            { text: "Guaranteed A’s on all your classes this quarter", type: "academic" },
+            { text: "Front-row tickets to see your favorite artist", type: "social" },
+            { text: "An all you can eat dinner with your closest friends", type: "connector" }
         ]
     },
     {
@@ -43,11 +43,11 @@ export const questions = [
     {
         question: "What do you value most in a community?",
         answers: [
-            { text: "Learning new skills and creating cool things", type: "builder" },
-            { text: "Access to opportunities and growth", type: "networker" },
-            { text: "Academic resources and being around people with similar goals", type: "academic" },
-            { text: "Fun memories and big shared experiences", type: "social" },
-            { text: "Close-knit community and shared culture", type: "connector" }
+            { text: "A space to explore my passions and create new things", type: "builder" },
+            { text: "Opportunities to grow and people who push me forward", type: "networker" },
+            { text: "Motivation, structure, and resources to stay on track", type: "academic" },
+            { text: "Exciting events, shared memories, and good vibes", type: "social" },
+            { text: "A close-knit community where people feel cared for and included", type: "connector" }
         ]
     }
 ];
