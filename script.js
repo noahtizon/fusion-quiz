@@ -65,7 +65,7 @@ const archetypes = {
         title: "The Networker",
         subtitle: "You're the LinkedIn warrior, making connections wherever you go.",
         icon: "🤝",
-        description: "You've got your eye on the horizon. You've got vision, drive, and maybe a Google Calendar so packed it scares people. You know how to present yourself, how to find the right people, and how to turn a casual conversation into a connection. People come to you for advice on resumes, interviews, and applications and for good reason. You carry yourself with confidence, communicate with purpose, and aren't afraid to chase what you want. For you, professionalism isn't just a goal, it's a mindset. You're not waiting for opportunities to show up. You're already out there creating them.",
+        description: "You've got your eye on the horizon. You've got vision, drive, and maybe a Google Calendar so packed it scares people. You know how to present yourself, how to find the right people, and how to turn a casual conversation into a connection. You carry yourself with confidence, communicate with purpose, and aren't afraid to chase what you want. You're not waiting for opportunities to show up. You're already out there creating them. You probably have 500+ connections already.",
         programs: ["Professional Workshops", "Alumni Networking", "Career Development Sessions", "Industry Meetups", "Leadership Training"]
     },
     academic: {
