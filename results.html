@@ -138,6 +138,10 @@
             
             document.body.removeChild(textArea);
         }
+
+        // Make functions globally available for inline onclick handlers
+        window.goToQuiz = goToQuiz;
+        window.shareResult = shareResult;
     </script>
 </body>
 </html>
