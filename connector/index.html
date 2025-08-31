@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Connector - FUSION Personality Quiz</title>
+    <link rel="icon" type="image/png" href="../fusion-logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Results Screen (pre-loaded) -->
+        <div id="results-screen" class="screen active">
+            <div class="results-container">
+                <div class="result-header">
+                    <div class="result-icon" id="result-icon">❤️</div>
+                    <h1 id="result-title">The Connector</h1>
+                    <p id="result-subtitle">You make people feel seen, supported, and at home.</p>
+                </div>
+                
+                <div class="result-description">
+                    <p id="result-description-text">You're the one people turn to, not because you're the loudest, but because you're genuine, grounded, and you care. You notice the small things. You check in when someone goes quiet. You're the one who makes sure everyone feels included, whether it's in a group chat, a hangout, or a space that reflects your shared culture and values. You believe community isn't something you join, it's something you create. You thrive in the deep conversations, the quiet support, and creating a sense of belonging. You don't just connect people. You remind them they're not alone.</p>
+                </div>
+
+                <div class="programs-section">
+                    <h3>Recommended Programs</h3>
+                    <div class="programs-list" id="programs-list">
+                        <span class="program-tag">FUSION Families</span>
+                        <span class="program-tag">Mentorship Program</span>
+                        <span class="program-tag">Cultural Workshops</span>
+                        <span class="program-tag">Alyansa Programs</span>
+                        <span class="program-tag">Community Building Events</span>
+                    </div>
+                    <p class="programs-note">Links to specific programs will be available soon!</p>
+                </div>
+
+                <div class="share-section">
+                    <button class="share-btn" onclick="shareResult()">Share Your Result</button>
+                    <button class="retake-btn" onclick="goToQuiz()">Take the Full Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="credit">Made by Noah Tizon</div>
+
+    <script>
+        // Auto-load the connector result
+        window.addEventListener('DOMContentLoaded', function() {
+            // Set the last result for sharing
+            window.lastResult = {
+                title: "The Connector",
+                subtitle: "You make people feel seen, supported, and at home."
+            };
+        });
+
+        function goToQuiz() {
+            window.location.href = '../';
+        }
+
+        function shareResult() {
+            if (navigator.share && window.lastResult) {
+                navigator.share({
+                    title: 'My FUSION Personality Quiz Result',
+                    text: `I'm ${window.lastResult.title}!`,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                // Fallback: copy to clipboard
+                const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \nTake the quiz: ${window.location.href.replace('/connector', '')}`;
+                
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        alert('Result copied to clipboard! Share it with your friends!');
+                    }).catch(() => {
+                        fallbackCopyToClipboard(shareText);
+                    });
+                } else {
+                    fallbackCopyToClipboard(shareText);
+                }
+            }
+        }
+
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                alert('Result copied to clipboard! Share it with your friends!');
+            } catch (err) {
+                alert('Unable to copy to clipboard. Please manually copy your result to share!');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>

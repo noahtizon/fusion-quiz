@@ -72,5 +72,20 @@
     <div class="credit">Made by Noah Tizon</div>
 
     <script src="script.js"></script>
+    <script>
+        // Check for direct archetype access via URL parameter
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const archetype = urlParams.get('archetype');
+            
+            if (archetype && archetypes[archetype]) {
+                // Show the specific archetype result
+                startScreen.classList.remove('active');
+                quizScreen.classList.remove('active');
+                resultsScreen.classList.add('active');
+                showDirectResult(archetype);
+            }
+        });
+    </script>
 </body>
 </html>

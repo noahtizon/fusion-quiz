@@ -147,6 +147,31 @@ function shuffleArray(array) {
     return shuffled;
 }
 
+// Function to show direct archetype result (for subpages)
+function showDirectResult(archetype) {
+    if (!archetypes[archetype]) return;
+    
+    const result = archetypes[archetype];
+    
+    // Update result display
+    document.getElementById('result-icon').textContent = result.icon;
+    document.getElementById('result-title').textContent = result.title;
+    document.getElementById('result-subtitle').textContent = result.subtitle;
+    document.getElementById('result-description-text').textContent = result.description;
+    
+    // Add programs
+    const programsList = document.getElementById('programs-list');
+    programsList.innerHTML = '';
+    result.programs.forEach(program => {
+        const tag = document.createElement('span');
+        tag.className = 'program-tag';
+        tag.textContent = program;
+        programsList.appendChild(tag);
+    });
+    
+    window.lastResult = result;
+}
+
 // Quiz Functions
 function startQuiz() {
     startScreen.classList.remove('active');
