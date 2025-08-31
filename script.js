@@ -10,16 +10,7 @@ const questions = [
             { text: "All you can eat dinner with friends", type: "connector" }
         ]
     },
-    {
-        question: "What makes a hangout go from good to great?",
-        answers: [
-            { text: "Talking about a random topic you're all passionate about", type: "builder" },
-            { text: "Discussing your life goals and hopes for the future", type: "networker" },
-            { text: "Bonding because you're all struggling together", type: "academic" },
-            { text: "Being spontaneous and high energy", type: "social" },
-            { text: "Inside jokes and being comfortable", type: "connector" }
-        ]
-    },
+
     {
         question: "In a group project, what role do you naturally end up in?",
         answers: [
@@ -30,16 +21,7 @@ const questions = [
             { text: "The one checking in on people and making everyone's on task", type: "connector" }
         ]
     },
-    {
-        question: "It's Friday night — what sounds best?",
-        answers: [
-            { text: "Having a chill night in and spending time on a hobby", type: "builder" },
-            { text: "Catching up with someone who inspires you", type: "networker" },
-            { text: "Getting ahead on work so you can actually relax the rest of the weekend", type: "academic" },
-            { text: "A spontaneous hangout with a big group", type: "social" },
-            { text: "Dinner and games with your closest friends", type: "connector" }
-        ]
-    },
+
     {
         question: "Which message would you be most excited to receive?",
         answers: [
@@ -254,10 +236,21 @@ function showResults() {
     quizScreen.classList.remove('active');
     resultsScreen.classList.add('active');
     
-    // Calculate result
-    const resultType = Object.keys(scores).reduce((a, b) => 
-        scores[a] > scores[b] ? a : b
-    );
+    // Calculate result with tie-breaker logic
+    let resultType;
+    
+    // Check if all categories have 1 point (tie scenario)
+    const allCategoriesHaveOne = Object.values(scores).every(score => score === 1);
+    
+    if (allCategoriesHaveOne) {
+        // Use the last answer as tie-breaker
+        resultType = userAnswers[userAnswers.length - 1];
+    } else {
+        // Normal scoring - find highest score
+        resultType = Object.keys(scores).reduce((a, b) => 
+            scores[a] > scores[b] ? a : b
+        );
+    }
     
     const result = archetypes[resultType];
     
