@@ -99,9 +99,9 @@ export const CONFIG = {
         // Individual question tracking
         question1Entry: 'entry.1746241827',
         question2Entry: 'entry.494545951',
-        question3Entry: 'entry.494545951',
-        question4Entry: 'entry.1056565161',
-        question5Entry: 'entry.1904630356'
+        question3Entry: 'entry.1056565161',
+        question4Entry: 'entry.1904630356',
+        question5Entry: 'entry.969806202'
     },
     quiz: {
         totalQuestions: 5,
