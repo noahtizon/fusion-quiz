@@ -100,12 +100,12 @@
             if (navigator.share && window.lastResult) {
                 navigator.share({
                     title: 'My FUSION Personality Quiz Result',
-                    text: `I'm ${window.lastResult.title}!`,
+                    text: `I'm ${window.lastResult.title}! Take the quiz at https://fusion-quiz.vercel.app/`,
                     url: window.location.href
                 }).catch(console.error);
             } else {
                 // Fallback: copy to clipboard
-                const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \nTake the quiz: ${window.location.href.split('/')[0]}`;
+                const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \n\nTake the quiz at https://fusion-quiz.vercel.app/`;
                 
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(shareText).then(() => {
