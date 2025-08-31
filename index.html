@@ -40,52 +40,11 @@
             </div>
         </div>
 
-        <!-- Results Screen -->
-        <div id="results-screen" class="screen">
-            <div class="results-container">
-                <div class="result-header">
-                    <div class="result-icon" id="result-icon"></div>
-                    <h1 id="result-title"></h1>
-                    <p id="result-subtitle"></p>
-                </div>
-                
-                <div class="result-description">
-                    <p id="result-description-text"></p>
-                </div>
 
-                <div class="programs-section">
-                    <h3>Recommended Programs</h3>
-                    <div class="programs-list" id="programs-list">
-                        <!-- Programs will be populated by JavaScript -->
-                    </div>
-                    <p class="programs-note">Links to specific programs will be available soon!</p>
-                </div>
-
-                <div class="share-section">
-                    <button class="share-btn" onclick="shareResult()">Share Your Result</button>
-                    <button class="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="credit">Made by Noah Tizon</div>
 
     <script src="script.js"></script>
-    <script>
-        // Check for direct archetype access via URL parameter
-        window.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const archetype = urlParams.get('archetype');
-            
-            if (archetype && archetypes[archetype]) {
-                // Show the specific archetype result
-                startScreen.classList.remove('active');
-                quizScreen.classList.remove('active');
-                resultsScreen.classList.add('active');
-                showDirectResult(archetype);
-            }
-        });
-    </script>
 </body>
 </html>

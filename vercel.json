@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "src": "/networker",
+      "dest": "/networker/index.html"
+    },
+    {
+      "src": "/builder",
+      "dest": "/builder/index.html"
+    },
+    {
+      "src": "/academic",
+      "dest": "/academic/index.html"
+    },
+    {
+      "src": "/social",
+      "dest": "/social/index.html"
+    },
+    {
+      "src": "/connector",
+      "dest": "/connector/index.html"
+    }
+  ]
+}

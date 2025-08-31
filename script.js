@@ -131,7 +131,6 @@ async function submitToGoogleForm(resultType) {
 // DOM Elements
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
-const resultsScreen = document.getElementById('results-screen');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const questionText = document.getElementById('question-text');
@@ -147,30 +146,7 @@ function shuffleArray(array) {
     return shuffled;
 }
 
-// Function to show direct archetype result (for subpages)
-function showDirectResult(archetype) {
-    if (!archetypes[archetype]) return;
-    
-    const result = archetypes[archetype];
-    
-    // Update result display
-    document.getElementById('result-icon').textContent = result.icon;
-    document.getElementById('result-title').textContent = result.title;
-    document.getElementById('result-subtitle').textContent = result.subtitle;
-    document.getElementById('result-description-text').textContent = result.description;
-    
-    // Add programs
-    const programsList = document.getElementById('programs-list');
-    programsList.innerHTML = '';
-    result.programs.forEach(program => {
-        const tag = document.createElement('span');
-        tag.className = 'program-tag';
-        tag.textContent = program;
-        programsList.appendChild(tag);
-    });
-    
-    window.lastResult = result;
-}
+
 
 // Quiz Functions
 function startQuiz() {
@@ -257,9 +233,6 @@ function goBack() {
 }
 
 function showResults() {
-    quizScreen.classList.remove('active');
-    resultsScreen.classList.add('active');
-    
     // Calculate result with tie-breaker logic
     let resultType;
     
@@ -276,83 +249,18 @@ function showResults() {
         );
     }
     
-    const result = archetypes[resultType];
-    
     // Submit result to Google Form
     submitToGoogleForm(resultType);
     
-    // Update result display
-    document.getElementById('result-icon').textContent = result.icon;
-    document.getElementById('result-title').textContent = result.title;
-    document.getElementById('result-subtitle').textContent = result.subtitle;
-    document.getElementById('result-description-text').textContent = result.description;
-    
-    // Add programs
-    const programsList = document.getElementById('programs-list');
-    programsList.innerHTML = '';
-    result.programs.forEach(program => {
-        const tag = document.createElement('span');
-        tag.className = 'program-tag';
-        tag.textContent = program;
-        programsList.appendChild(tag);
-    });
-    
-    // Store result for sharing
-    window.lastResult = result;
+    // Redirect to the specific archetype page
+    window.location.href = `/${resultType}/`;
 }
 
-function shareResult() {
-    if (navigator.share && window.lastResult) {
-        navigator.share({
-            title: 'My FUSION Personality Quiz Result',
-            text: `I'm ${window.lastResult.title}!`,
-            url: window.location.href
-        }).catch(console.error);
-    } else {
-        // Fallback: copy to clipboard
-        const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \nTake the quiz: ${window.location.href}`;
-        
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(shareText).then(() => {
-                alert('Result copied to clipboard! Share it with your friends!');
-            }).catch(() => {
-                fallbackCopyToClipboard(shareText);
-            });
-        } else {
-            fallbackCopyToClipboard(shareText);
-        }
-    }
-}
 
-function fallbackCopyToClipboard(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    textArea.style.top = '-999999px';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        alert('Result copied to clipboard! Share it with your friends!');
-    } catch (err) {
-        alert('Unable to copy to clipboard. Please manually copy your result to share!');
-    }
-    
-    document.body.removeChild(textArea);
-}
 
 function retakeQuiz() {
-    resultsScreen.classList.remove('active');
-    startScreen.classList.add('active');
-    
-    // Reset quiz state
-    currentQuestion = 0;
-    userAnswers = [];
-    scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
-    progressFill.style.width = '0%';
+    // Redirect back to main quiz
+    window.location.href = '/';
 }
 
 // Interactive Effects & Event Listeners
