@@ -18,18 +18,17 @@ const questions = [
             { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
             { text: "The one doing most of the actual work", type: "academic" },
             { text: "The one making it fun and keeping energy up", type: "social" },
-            { text: "The one checking in on people and making everyone's on task", type: "connector" }
+            { text: "The one checking in and making sure everyone's on task", type: "connector" }
         ]
     },
-
     {
         question: "Which message would you be most excited to receive?",
         answers: [
             { text: "I got this idea for a project, want to hear?", type: "builder" },
-            { text: "My cousin's company just opened internships, are you interested?", type: "networker" },
+            { text: "It was great to meet you! Are you looking for an internship?", type: "networker" },
             { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside?", type: "social" },
-            { text: "Hey! Just wanted to check in on how you were doing?", type: "connector" }
+            { text: "Hey it's been a while, want to catch up soon?", type: "connector" }
         ]
     },
     {
@@ -45,8 +44,8 @@ const questions = [
     {
         question: "What do you value most in a community?",
         answers: [
-            { text: "Getting to create and learn new skills", type: "builder" },
-            { text: "Opportunities and growth", type: "networker" },
+            { text: "Learning new skills and creating cool things", type: "builder" },
+            { text: "Access to opportunities and growth", type: "networker" },
             { text: "Academic resources and being around people with similar goals", type: "academic" },
             { text: "Fun memories and big shared experiences", type: "social" },
             { text: "Close-knit community and shared culture", type: "connector" }
@@ -57,37 +56,37 @@ const questions = [
 const archetypes = {
     builder: {
         title: "The Builder",
-        subtitle: "You learn by doing. You're all about projects, problem-solving, and building things from the ground up.",
+        subtitle: "You thrive on ideas, independence, and getting things done.",
         icon: "🔧",
-        description: "You're the hands-on problem solver who thrives on creating, building, and making ideas come to life. Whether it's coding a new app, designing a system, or working with your hands, you find fulfillment in the process of creation. You learn best through experimentation and aren't afraid to get your hands dirty. Your practical approach to challenges makes you invaluable in any team, and you're always looking for the next project to tackle.",
+        description: "You like creating things, whether it's a project, a plan, or just something cool you thought of last night. You thrive when given space to explore, learn by doing, and run with new ideas. Focused and self-motivated, you're most excited when you have a challenge in front of you.",
         programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "Build Meetings", "FUSIONCon"]
     },
     networker: {
         title: "The Networker",
-        subtitle: "You're the LinkedIn warrior, chasing opportunities, career growth, and making connections wherever you go. Probably has 500+ connections.",
+        subtitle: "You're the LinkedIn warrior, making connections wherever you go.",
         icon: "🤝",
-        description: "You understand that success is built on relationships and opportunities. You're always thinking about the next connection, the next opportunity, or how to level up your career game. You see the value in every conversation and have a natural ability to build bridges between people and ideas. Your strategic mindset and people skills make you a natural leader and connector in any professional setting.",
+        description: "You're the one who's always on the lookout for new opportunities, future plans, and who's hiring. You've got vision, drive, and a Google Calendar so packed it scares people. You probably have 500+ connections already.",
         programs: ["Professional Workshops", "Alumni Networking", "Career Development Sessions", "Industry Meetups", "Leadership Training"]
     },
     academic: {
         title: "The Academic Weapon",
-        subtitle: "You're locked in. You're focused on school, mastering your craft, and staying ahead academically.",
+        subtitle: "You set the curve and help others hit it too.",
         icon: "📚",
-        description: "You're the definition of academic excellence and intellectual curiosity. Your dedication to learning and mastering your craft sets you apart. You thrive in structured learning environments and are always seeking to deepen your knowledge. Whether it's late-night study sessions or diving deep into complex topics, you approach education with passion and discipline. Your commitment to excellence inspires others around you.",
+        description: "You know how to lock in. Whether it's managing your time, helping others study, or chasing that 4.0, you're serious about your goals. You don't just value academics, you value people who work hard, stay focused, and push themselves.",
         programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "Mentorship Program", "Finals Study Groups"]
     },
     social: {
         title: "The Social Butterfly",
-        subtitle: "Big group energy is your thing. You thrive on big social events, and any chance to meet new people and make memories.",
+        subtitle: "You live for big energy, new people, and spontaneous plans.",
         icon: "🎉",
-        description: "You're the life of the party and the glue that brings people together. Your energy is infectious, and you have a natural talent for creating fun, memorable experiences for everyone around you. You thrive in group settings and are always up for the next adventure or social gathering. Your enthusiasm and ability to make others feel included creates lasting bonds and unforgettable moments.",
+        description: "You bring the energy. Whether it's karaoke or beach day, you're the glue that keeps the fun going. You love big moments, new people, and saying yes, especially when plans are spontaneous.",
         programs: ["FU-Fridays", "Social Retreats", "FU-Fit/Intramurals", "Community Events", "Game Nights"]
     },
     connector: {
         title: "The Connector",
-        subtitle: "You're the heart of the community, fostering close relationships while celebrating cultural pride and shared identity.",
+        subtitle: "You make people feel seen, supported, and at home.",
         icon: "❤️",
-        description: "You're the emotional backbone of your community, creating deep, meaningful connections and fostering a sense of belonging for everyone. You understand the importance of cultural identity and work to ensure everyone feels seen, heard, and valued. Your empathy and genuine care for others creates safe spaces where authentic relationships can flourish.",
+        description: "You're all about people. You check in, make space, and help others feel like they belong. Whether it's family dinners or cultural nights, you believe in tight-knit communities that support each other.",
         programs: ["FUSION Families", "Mentorship Program", "Cultural Workshops", "Alyansa Programs", "Community Building Events"]
     }
 };
