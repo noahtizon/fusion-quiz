@@ -16,12 +16,12 @@ export const questions = [
             { text: "You're so creative and always working on something cool", type: "builder" },
             { text: "You're definitely gonna be successful one day", type: "networker" },
             { text: "You're so smart and always prepared", type: "academic" },
-            { text: "You can double the energy of any room you're in", type: "social" },
-            { text: "You're great at looking out for people'", type: "connector" }
+            { text: "You double the energy of any group you're in", type: "social" },
+            { text: "You're great at looking out for people", type: "connector" }
         ]
     },
     {
-        question: "When your team is working together, what do you bring to the table?",
+        question: "When working in a team, what do you bring to the table?",
         answers: [
             { text: "Coming up with ideas and solving tricky problems", type: "builder" },
             { text: "Asking the right questions and making the final pitch shine", type: "networker" },
