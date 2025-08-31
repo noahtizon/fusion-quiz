@@ -168,6 +168,10 @@ function retakeQuiz() {
     window.location.href = '/';
 }
 
+// Make functions globally available for inline onclick handlers
+window.startQuiz = startQuiz;
+window.goBack = goBack;
+
 // Interactive Effects & Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Add click animation to all buttons
