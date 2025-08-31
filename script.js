@@ -39,13 +39,89 @@ async function submitToGoogleForm(resultType) {
             }
         });
         
-        await fetch(TRACKING_CONFIG.formUrl, {
-            method: "POST",
-            mode: "no-cors", // Must be no-cors
-            body: formData,
-        });
+        // Mobile-friendly submission with multiple fallback methods
+        let submitted = false;
         
-        console.log('✅ Result and individual answers submitted to Google Form');
+        // Method 1: Try fetch with no-cors
+        try {
+            await fetch(TRACKING_CONFIG.formUrl, {
+                method: "POST",
+                mode: "no-cors",
+                body: formData,
+            });
+            submitted = true;
+            console.log('✅ Result submitted via fetch (no-cors)');
+        } catch (fetchError) {
+            console.warn('Fetch failed, trying alternative method:', fetchError);
+        }
+        
+        // Method 2: Try XMLHttpRequest (more reliable on mobile)
+        if (!submitted) {
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', TRACKING_CONFIG.formUrl, true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                
+                // Convert FormData to URL-encoded string for better mobile compatibility
+                const urlEncodedData = new URLSearchParams(formData).toString();
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200 || xhr.status === 0) {
+                        console.log('✅ Result submitted via XMLHttpRequest');
+                    } else {
+                        console.warn('XMLHttpRequest failed with status:', xhr.status);
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    console.warn('XMLHttpRequest error');
+                };
+                
+                xhr.send(urlEncodedData);
+                submitted = true;
+            } catch (xhrError) {
+                console.warn('XMLHttpRequest failed:', xhrError);
+            }
+        }
+        
+        // Method 3: Try iframe submission as last resort
+        if (!submitted) {
+            try {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = TRACKING_CONFIG.formUrl;
+                form.target = iframe.name;
+                
+                // Add all form data
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    form.appendChild(input);
+                }
+                
+                iframe.appendChild(form);
+                form.submit();
+                
+                // Clean up after submission
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 1000);
+                
+                console.log('✅ Result submitted via iframe fallback');
+            } catch (iframeError) {
+                console.warn('Iframe submission failed:', iframeError);
+            }
+        }
+        
+        if (!submitted) {
+            console.warn('❌ All submission methods failed');
+        }
     } catch (error) {
         console.warn('❌ Form submission failed:', error);
     }
