@@ -338,7 +338,7 @@ h1 {
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--text-dark);
     position: relative;
@@ -603,10 +603,14 @@ h1 {
     
     .answer-btn {
         padding: 1rem 1.2rem;
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
     
     .results-container {
+        padding: 2rem 1rem;
+    }
+    
+    .result-description {
         padding: 2rem 1.5rem;
     }
     
@@ -638,7 +642,7 @@ h1 {
     
     .answer-btn {
         padding: 1.2rem 1.5rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     
     .answer-btn::after {
