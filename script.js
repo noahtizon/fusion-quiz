@@ -148,21 +148,37 @@ function goBack() {
 }
 
 function showResults() {
-    // Calculate result with tie-breaker logic
+    // Calculate result with enhanced tie-breaker logic
     let resultType;
     
-    // Check if all categories have 1 point (tie scenario)
+    // Debug logging
+    console.log('Final scores:', scores);
+    console.log('User answers:', userAnswers);
+    
+    // Check if all categories have 1 point (1-1-1-1-1 tie scenario)
     const allCategoriesHaveOne = Object.values(scores).every(score => score === 1);
     
     if (allCategoriesHaveOne) {
-        // Use the last answer as tie-breaker
+        // Use the last answer as tie-breaker for 1-1-1-1-1
         resultType = userAnswers[userAnswers.length - 1];
+        console.log('1-1-1-1-1 tie detected, using last answer:', resultType);
     } else {
-        // Normal scoring - find highest score
-        resultType = Object.keys(scores).reduce((a, b) => 
-            scores[a] > scores[b] ? a : b
-        );
+        // Find highest score
+        const maxScore = Math.max(...Object.values(scores));
+        const highestScorers = Object.keys(scores).filter(type => scores[type] === maxScore);
+        
+        if (highestScorers.length === 1) {
+            // Clear winner
+            resultType = highestScorers[0];
+            console.log('Clear winner:', resultType, 'with score:', maxScore);
+        } else {
+            // Multiple highest scores (tie) - use last answer as tie-breaker
+            resultType = userAnswers[userAnswers.length - 1];
+            console.log('Tie detected between:', highestScorers, 'using last answer as tie-breaker:', resultType);
+        }
     }
+    
+    console.log('Final result:', resultType);
     
     // Submit result to Google Form
     submitToGoogleForm(resultType);
