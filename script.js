@@ -216,7 +216,7 @@ function showResults() {
     submitToGoogleForm(resultType);
     
     // Redirect to the specific archetype page
-    window.location.href = `/${resultType}/`;
+    window.location.href = `/${resultType}`;
 }
 
 
