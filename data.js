@@ -1,7 +1,7 @@
 // Quiz Questions Data
 export const questions = [
     {
-        question: "If you could get one of these right now, what would it be?",
+        question: "Choose one of the following:",
         answers: [
             { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
             { text: "Coffee chat with the CEO of your dream company", type: "networker" },
@@ -43,8 +43,8 @@ export const questions = [
     {
         question: "What do you value most in a community?",
         answers: [
-            { text: "A space to explore my passions and create new things", type: "builder" },
-            { text: "Opportunities to grow and people who push me forward", type: "networker" },
+            { text: "A space to explore your passions and create new things", type: "builder" },
+            { text: "Opportunities to grow and people who push you forward", type: "networker" },
             { text: "Motivation, structure, and resources to stay on track", type: "academic" },
             { text: "Exciting events, shared memories, and good vibes", type: "social" },
             { text: "A close-knit community where people feel cared for and included", type: "connector" }
