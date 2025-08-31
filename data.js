@@ -11,13 +11,23 @@ export const questions = [
         ]
     },
     {
-        question: "In a group project, what role do you naturally end up in?",
+        question: "Which compliment would make your day?",
         answers: [
-            { text: "The one who will do their part the night before", type: "builder" },
-            { text: "The one who can kill the presentation even if they don't know what's going on", type: "networker" },
-            { text: "The one doing most of the actual work", type: "academic" },
-            { text: "The one making it fun and keeping energy up", type: "social" },
-            { text: "The one checking in and making sure everyone's on task", type: "connector" }
+            { text: "You're so creative and always working on something cool", type: "builder" },
+            { text: "You're definitely gonna be successful one day", type: "networker" },
+            { text: "You're so smart and always prepared", type: "academic" },
+            { text: "You can double the energy of any room you're in", type: "social" },
+            { text: "You're great at looking out for people'", type: "connector" }
+        ]
+    },
+    {
+        question: "When your team is working together, what do you bring to the table?",
+        answers: [
+            { text: "Coming up with ideas and solving tricky problems", type: "builder" },
+            { text: "Asking the right questions and making the final pitch shine", type: "networker" },
+            { text: "Keeping track of timelines, details, and making sure the plan holds", type: "academic" },
+            { text: "Bringing energy, bonding people, and making it fun", type: "social" },
+            { text: "Making sure everyone feels included and smoothing over conflicts", type: "connector" }
         ]
     },
     {
@@ -28,16 +38,6 @@ export const questions = [
             { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside?", type: "social" },
             { text: "Hey it's been a while, want to catch up soon?", type: "connector" }
-        ]
-    },
-    {
-        question: "When people come to you for help, it's usually for…",
-        answers: [
-            { text: "Figuring something out or making sense of a problem", type: "builder" },
-            { text: "Advice on jobs, clubs, or opportunities", type: "networker" },
-            { text: "Questions about the homework or upcoming midterm", type: "academic" },
-            { text: "Planning what to do this weekend", type: "social" },
-            { text: "Talking things out or needing support", type: "connector" }
         ]
     },
     {
