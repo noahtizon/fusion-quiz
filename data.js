@@ -3,10 +3,10 @@ export const questions = [
     {
         question: "Choose one of the following:",
         answers: [
-            { text: "A week off to catch up on everything you have to do and relax", type: "builder" },
+            { text: "A $500 gift card to spend on your favorite hobby", type: "builder" },
             { text: "Coffee chat with the CEO of your dream company", type: "networker" },
             { text: "Guaranteed A’s on all your classes this quarter", type: "academic" },
-            { text: "Front-row tickets to see your favorite artist", type: "social" },
+            { text: "Front-row tickets to a big concert", type: "social" },
             { text: "An all you can eat dinner with your closest friends", type: "connector" }
         ]
     },
@@ -14,8 +14,8 @@ export const questions = [
         question: "Which compliment would make your day?",
         answers: [
             { text: "You're so creative and always working on something cool", type: "builder" },
-            { text: "You're definitely gonna be successful one day", type: "networker" },
-            { text: "You're so smart and always prepared", type: "academic" },
+            { text: "You’ve got big goals, and it shows", type: "networker" },
+            { text: "You’re the kind of person people just trust to figure things out", type: "academic" },
             { text: "You double the energy of any group you're in", type: "social" },
             { text: "You're great at looking out for people", type: "connector" }
         ]
@@ -24,30 +24,30 @@ export const questions = [
         question: "When working in a team, what do you bring to the table?",
         answers: [
             { text: "Coming up with ideas and solving tricky problems", type: "builder" },
-            { text: "Asking the right questions and making the final pitch shine", type: "networker" },
-            { text: "Keeping track of timelines, details, and making sure the plan holds", type: "academic" },
-            { text: "Bringing energy, bonding people, and making it fun", type: "social" },
+            { text: "Taking charge during meetings and making sure everyone’s on the same page", type: "networker" },
+            { text: "Making to-do lists and making sure you don’t fall behind", type: "academic" },
+            { text: "Keping the energy up and getting the team to bond", type: "social" },
             { text: "Making sure everyone feels included and smoothing over conflicts", type: "connector" }
         ]
     },
     {
         question: "Which message would you be most excited to receive?",
         answers: [
-            { text: "I got this idea for a project, want to hear?", type: "builder" },
-            { text: "It was great to meet you! Are you looking for an internship?", type: "networker" },
+            { text: "[An Instagram Reel about something you’re really into]", type: "builder" },
+            { text: "We’ve got an internship opening that sounds like something you’d go for.", type: "networker" },
             { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside?", type: "social" },
-            { text: "Hey it's been a while, want to catch up soon?", type: "connector" }
+            { text: "You're not gonna believe what just happened... can I call", type: "connector" }
         ]
     },
     {
         question: "What do you value most in a community?",
         answers: [
-            { text: "A space to explore your passions and create new things", type: "builder" },
+            { text: "A community that supports your ideas and helps bring them to life", type: "builder" },
             { text: "Opportunities to grow and people who push you forward", type: "networker" },
-            { text: "Motivation, structure, and resources to stay on track", type: "academic" },
+            { text: "A supportive structure that helps you grow without burning out", type: "academic" },
             { text: "Exciting events, shared memories, and good vibes", type: "social" },
-            { text: "A close-knit community where people feel cared for and included", type: "connector" }
+            { text: "A space where people respect each other and feel welcome", type: "connector" }
         ]
     }
 ];
