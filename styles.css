@@ -538,10 +538,39 @@ h1 {
     margin-bottom: 2rem;
 }
 
-.all-types-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--light-gray);
+    border: 2px solid var(--primary-gray);
+    border-radius: var(--border-radius);
     color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background: #ffffff;
+    border-color: var(--fusion-yellow);
+    transform: translateY(-2px);
+}
+
+.dropdown-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.all-types-dropdown {
+    display: none;
+    margin-top: 1rem;
 }
 
 .all-types-grid {
@@ -699,6 +728,12 @@ h1 {
     .share-btn, .retake-btn {
         width: 100%;
         max-width: 250px;
+    }
+    
+    .dropdown-toggle {
+        max-width: 250px;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
     }
     
     .all-types-grid {

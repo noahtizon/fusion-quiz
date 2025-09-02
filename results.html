@@ -29,14 +29,19 @@
                     <p class="programs-note">Links to specific programs will be available soon!</p>
                 </div>
 
-                <div class="all-types-section">
-                    <h3>Explore All Types</h3>
-                    <div class="all-types-grid" id="all-types-grid"></div>
-                </div>
-
                 <div class="share-section">
                     <button class="share-btn" onclick="shareResult()">Share Your Result</button>
                     <button class="retake-btn" onclick="goToQuiz()">Retake Quiz</button>
+                </div>
+
+                <div class="all-types-section">
+                    <button class="dropdown-toggle" onclick="toggleAllTypes()">
+                        <span>Explore All Types</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="all-types-dropdown" id="all-types-dropdown">
+                        <div class="all-types-grid" id="all-types-grid"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,9 +166,24 @@
             document.body.removeChild(textArea);
         }
 
+        // Toggle dropdown function
+        function toggleAllTypes() {
+            const dropdown = document.getElementById('all-types-dropdown');
+            const arrow = document.querySelector('.dropdown-arrow');
+            
+            if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                dropdown.style.display = 'block';
+                arrow.textContent = '▲';
+            } else {
+                dropdown.style.display = 'none';
+                arrow.textContent = '▼';
+            }
+        }
+
         // Make functions globally available for inline onclick handlers
         window.goToQuiz = goToQuiz;
         window.shareResult = shareResult;
+        window.toggleAllTypes = toggleAllTypes;
     </script>
 </body>
 </html>
