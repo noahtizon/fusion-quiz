@@ -542,7 +542,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.3rem;
+    gap: 0.3rem
     width: 100%;
     max-width: 200px;
     margin: 2rem auto 0.5rem;
@@ -574,8 +574,9 @@ h1 {
 }
 
 .all-types-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
     max-width: 600px;
@@ -583,24 +584,20 @@ h1 {
     margin-right: auto;
 }
 
-/* First row - 3 cards */
-.all-types-grid .all-type-card:nth-child(1),
-.all-types-grid .all-type-card:nth-child(2),
-.all-types-grid .all-type-card:nth-child(3) {
-    grid-row: 1;
+.all-types-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
 }
 
-/* Second row - 2 cards centered */
-.all-types-grid .all-type-card:nth-child(4) {
-    grid-row: 2;
-    grid-column: 1 / 2;
-    justify-self: end;
+.all-types-row.first-row {
+    justify-content: center;
 }
 
-.all-types-grid .all-type-card:nth-child(5) {
-    grid-row: 2;
-    grid-column: 2 / 4;
-    justify-self: start;
+.all-types-row.second-row {
+    justify-content: center;
+    max-width: 400px;
 }
 
 .all-type-card {
@@ -739,30 +736,25 @@ h1 {
         margin: 1.5rem auto 0.5rem;
     }
     
-    .all-types-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .all-types-row {
+        flex-direction: column;
         gap: 0.8rem;
-        max-width: 400px;
     }
     
-    /* Mobile: 2-2-1 layout */
-    .all-types-grid .all-type-card:nth-child(1),
-    .all-types-grid .all-type-card:nth-child(2) {
-        grid-row: 1;
+    .all-types-row.first-row {
+        flex-direction: column;
     }
     
-    .all-types-grid .all-type-card:nth-child(3),
-    .all-types-grid .all-type-card:nth-child(4) {
-        grid-row: 2;
-    }
-    
-    .all-types-grid .all-type-card:nth-child(5) {
-        grid-row: 3;
-        grid-column: 1 / 3;
+    .all-types-row.second-row {
+        flex-direction: column;
+        max-width: 100%;
     }
     
     .all-type-card {
         padding: 0.8rem;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
     }
 }
 

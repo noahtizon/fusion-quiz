@@ -88,7 +88,18 @@
             const allTypesGrid = document.getElementById('all-types-grid');
             allTypesGrid.innerHTML = '';
             
-            Object.entries(archetypes).forEach(([key, archetypeData]) => {
+            // Create first row (3 cards)
+            const firstRow = document.createElement('div');
+            firstRow.className = 'all-types-row first-row';
+            
+            // Create second row (2 cards)
+            const secondRow = document.createElement('div');
+            secondRow.className = 'all-types-row second-row';
+            
+            const archetypeEntries = Object.entries(archetypes);
+            
+            // Add first 3 cards to first row
+            archetypeEntries.slice(0, 3).forEach(([key, archetypeData]) => {
                 const typeCard = document.createElement('div');
                 typeCard.className = key === archetype ? 'all-type-card current' : 'all-type-card';
                 typeCard.onclick = () => window.location.href = `/${key}`;
@@ -98,8 +109,25 @@
                     <div class="all-type-title">${archetypeData.title}</div>
                 `;
                 
-                allTypesGrid.appendChild(typeCard);
+                firstRow.appendChild(typeCard);
             });
+            
+            // Add last 2 cards to second row
+            archetypeEntries.slice(3, 5).forEach(([key, archetypeData]) => {
+                const typeCard = document.createElement('div');
+                typeCard.className = key === archetype ? 'all-type-card current' : 'all-type-card';
+                typeCard.onclick = () => window.location.href = `/${key}`;
+                
+                typeCard.innerHTML = `
+                    <div class="all-type-icon">${archetypeData.icon}</div>
+                    <div class="all-type-title">${archetypeData.title}</div>
+                `;
+                
+                secondRow.appendChild(typeCard);
+            });
+            
+            allTypesGrid.appendChild(firstRow);
+            allTypesGrid.appendChild(secondRow);
 
             // Set for sharing
             window.lastResult = {
