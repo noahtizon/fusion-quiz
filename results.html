@@ -29,9 +29,9 @@
                     <p class="programs-note">Links to specific programs will be available soon!</p>
                 </div>
 
-                <div class="other-types-section">
+                <div class="all-types-section">
                     <h3>Explore All Types</h3>
-                    <div class="other-types-grid" id="other-types-grid"></div>
+                    <div class="all-types-grid" id="all-types-grid"></div>
                 </div>
 
                 <div class="share-section">
@@ -79,24 +79,21 @@
                 programsList.appendChild(span);
             });
 
-            // Populate other types (exclude current archetype)
-            const otherTypesGrid = document.getElementById('other-types-grid');
-            otherTypesGrid.innerHTML = '';
+            // Populate all types (including current)
+            const allTypesGrid = document.getElementById('all-types-grid');
+            allTypesGrid.innerHTML = '';
             
             Object.entries(archetypes).forEach(([key, archetypeData]) => {
-                if (key !== archetype) { // Don't show current archetype
-                    const typeCard = document.createElement('div');
-                    typeCard.className = 'other-type-card';
-                    typeCard.onclick = () => window.location.href = `/${key}`;
-                    
-                    typeCard.innerHTML = `
-                        <div class="other-type-icon">${archetypeData.icon}</div>
-                        <div class="other-type-title">${archetypeData.title}</div>
-                        <div class="other-type-subtitle">${archetypeData.subtitle}</div>
-                    `;
-                    
-                    otherTypesGrid.appendChild(typeCard);
-                }
+                const typeCard = document.createElement('div');
+                typeCard.className = key === archetype ? 'all-type-card current' : 'all-type-card';
+                typeCard.onclick = () => window.location.href = `/${key}`;
+                
+                typeCard.innerHTML = `
+                    <div class="all-type-icon">${archetypeData.icon}</div>
+                    <div class="all-type-title">${archetypeData.title}</div>
+                `;
+                
+                allTypesGrid.appendChild(typeCard);
             });
 
             // Set for sharing
