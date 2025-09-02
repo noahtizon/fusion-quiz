@@ -609,6 +609,12 @@ h1 {
     transition: all 0.3s ease;
     border: 2px solid transparent;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 120px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .all-type-card:hover {
@@ -752,8 +758,8 @@ h1 {
     
     .all-type-card {
         padding: 0.8rem;
-        width: 100%;
-        max-width: 200px;
+        width: 100px;
+        height: 80px;
         margin: 0 auto;
     }
 }
