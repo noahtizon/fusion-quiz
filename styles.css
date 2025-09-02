@@ -542,25 +542,25 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto 1rem;
-    padding: 0.8rem 1.5rem;
-    background: var(--light-gray);
-    border: 2px solid var(--primary-gray);
-    border-radius: var(--border-radius);
-    color: var(--text-dark);
-    font-size: 1rem;
-    font-weight: 600;
+    max-width: 200px;
+    margin: 2rem auto 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--primary-gray);
+    border-radius: 20px;
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .dropdown-toggle:hover {
-    background: #ffffff;
+    background: var(--light-gray);
     border-color: var(--fusion-yellow);
-    transform: translateY(-2px);
+    color: var(--text-dark);
 }
 
 .dropdown-arrow {
@@ -593,12 +593,14 @@ h1 {
 /* Second row - 2 cards centered */
 .all-types-grid .all-type-card:nth-child(4) {
     grid-row: 2;
-    grid-column: 1;
+    grid-column: 1 / 2;
+    justify-self: end;
 }
 
 .all-types-grid .all-type-card:nth-child(5) {
     grid-row: 2;
-    grid-column: 3;
+    grid-column: 2 / 4;
+    justify-self: start;
 }
 
 .all-type-card {
@@ -731,9 +733,10 @@ h1 {
     }
     
     .dropdown-toggle {
-        max-width: 250px;
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
+        max-width: 180px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        margin: 1.5rem auto 0.5rem;
     }
     
     .all-types-grid {
