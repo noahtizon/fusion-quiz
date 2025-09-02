@@ -29,6 +29,11 @@
                     <p class="programs-note">Links to specific programs will be available soon!</p>
                 </div>
 
+                <div class="other-types-section">
+                    <h3>Explore All Types</h3>
+                    <div class="other-types-grid" id="other-types-grid"></div>
+                </div>
+
                 <div class="share-section">
                     <button class="share-btn" onclick="shareResult()">Share Your Result</button>
                     <button class="retake-btn" onclick="goToQuiz()">Retake Quiz</button>
@@ -72,6 +77,26 @@
                 span.className = 'program-tag';
                 span.textContent = program;
                 programsList.appendChild(span);
+            });
+
+            // Populate other types (exclude current archetype)
+            const otherTypesGrid = document.getElementById('other-types-grid');
+            otherTypesGrid.innerHTML = '';
+            
+            Object.entries(archetypes).forEach(([key, archetypeData]) => {
+                if (key !== archetype) { // Don't show current archetype
+                    const typeCard = document.createElement('div');
+                    typeCard.className = 'other-type-card';
+                    typeCard.onclick = () => window.location.href = `/${key}`;
+                    
+                    typeCard.innerHTML = `
+                        <div class="other-type-icon">${archetypeData.icon}</div>
+                        <div class="other-type-title">${archetypeData.title}</div>
+                        <div class="other-type-subtitle">${archetypeData.subtitle}</div>
+                    `;
+                    
+                    otherTypesGrid.appendChild(typeCard);
+                }
             });
 
             // Set for sharing

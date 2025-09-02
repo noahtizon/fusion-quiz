@@ -50,8 +50,8 @@ async function submitToGoogleForm(resultType) {
 
         // 1) fetch fallback (keepalive helps during unload on some browsers)
         try {
-            await fetch(TRACKING_CONFIG.formUrl, {
-                method: "POST",
+        await fetch(TRACKING_CONFIG.formUrl, {
+            method: "POST",
                 mode: "no-cors",
                 body: fd,
                 keepalive: true

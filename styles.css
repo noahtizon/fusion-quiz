@@ -533,6 +533,59 @@ h1 {
     margin-bottom: 2rem;
 }
 
+/* Other Types Section */
+.other-types-section {
+    margin-bottom: 2rem;
+}
+
+.other-types-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.other-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.other-type-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.other-type-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--fusion-yellow);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.other-type-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.other-type-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+
+.other-type-subtitle {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    line-height: 1.3;
+}
+
 .share-section {
     display: flex;
     gap: 1rem;
@@ -626,6 +679,15 @@ h1 {
     .share-btn, .retake-btn {
         width: 100%;
         max-width: 250px;
+    }
+    
+    .other-types-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .other-type-card {
+        padding: 1.2rem;
     }
 }
 
