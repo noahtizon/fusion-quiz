@@ -101,13 +101,11 @@
             const entries = Object.entries(archetypes);
             console.log('Archetype entries:', entries); // Debug log
             
-            const [firstRow, secondRow] = [
-                document.createElement('div'),
-                document.createElement('div')
-            ].map(el => {
-                el.className = el === firstRow ? 'all-types-row first-row' : 'all-types-row second-row';
-                return el;
-            });
+            const firstRow = document.createElement('div');
+            const secondRow = document.createElement('div');
+            
+            firstRow.className = 'all-types-row first-row';
+            secondRow.className = 'all-types-row second-row';
             
             entries.slice(0, 3).forEach(([key, data]) => firstRow.appendChild(createTypeCard(key, data)));
             entries.slice(3, 5).forEach(([key, data]) => secondRow.appendChild(createTypeCard(key, data)));
