@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="all-types-section">
-                    <button class="dropdown-toggle" onclick="toggleAllTypes()">
+                    <button class="dropdown-toggle" id="dropdown-toggle-btn">
                         <span>Explore All Types</span>
                         <span class="dropdown-arrow">▼</span>
                     </button>
@@ -87,15 +87,20 @@
             const allTypesGrid = document.getElementById('all-types-grid');
             allTypesGrid.innerHTML = '';
             
+            console.log('Populating all types grid...'); // Debug log
+            
             const createTypeCard = (key, data) => {
                 const card = document.createElement('div');
                 card.className = key === archetype ? 'all-type-card current' : 'all-type-card';
                 card.onclick = () => window.location.href = `/${key}`;
                 card.innerHTML = `<div class="all-type-icon">${data.icon}</div><div class="all-type-title">${data.title}</div>`;
+                console.log('Created card for:', key, data.title); // Debug log
                 return card;
             };
             
             const entries = Object.entries(archetypes);
+            console.log('Archetype entries:', entries); // Debug log
+            
             const [firstRow, secondRow] = [
                 document.createElement('div'),
                 document.createElement('div')
@@ -108,6 +113,7 @@
             entries.slice(3, 5).forEach(([key, data]) => secondRow.appendChild(createTypeCard(key, data)));
             
             allTypesGrid.append(firstRow, secondRow);
+            console.log('All types grid populated with', allTypesGrid.children.length, 'rows'); // Debug log
 
             // Set for sharing
             window.lastResult = {
@@ -124,6 +130,15 @@
             if (!archetype || !populateResults(archetype)) {
                 // Invalid archetype, redirect to main quiz
                 window.location.href = '/';
+            }
+            
+            // Add event listener for dropdown toggle
+            const dropdownToggle = document.getElementById('dropdown-toggle-btn');
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', toggleAllTypes);
+                console.log('Dropdown toggle event listener added'); // Debug log
+            } else {
+                console.error('Dropdown toggle button not found'); // Debug log
             }
         });
 
@@ -176,18 +191,38 @@
 
         // Toggle dropdown function
         function toggleAllTypes() {
+            console.log('toggleAllTypes called'); // Debug log
             const dropdown = document.getElementById('all-types-dropdown');
             const arrow = document.querySelector('.dropdown-arrow');
-            const isHidden = dropdown.style.display === 'none' || dropdown.style.display === '' || getComputedStyle(dropdown).display === 'none';
             
-            dropdown.style.display = isHidden ? 'block' : 'none';
-            arrow.textContent = isHidden ? '▲' : '▼';
+            console.log('dropdown element:', dropdown); // Debug log
+            console.log('arrow element:', arrow); // Debug log
+            
+            if (!dropdown || !arrow) {
+                console.error('Dropdown or arrow element not found');
+                return;
+            }
+            
+            // Simple toggle approach
+            const isCurrentlyVisible = dropdown.style.display === 'block';
+            
+            console.log('isCurrentlyVisible:', isCurrentlyVisible); // Debug log
+            console.log('current display:', dropdown.style.display); // Debug log
+            
+            if (isCurrentlyVisible) {
+                dropdown.style.display = 'none';
+                arrow.textContent = '▼';
+            } else {
+                dropdown.style.display = 'block';
+                arrow.textContent = '▲';
+            }
+            
+            console.log('new display:', dropdown.style.display); // Debug log
         }
 
         // Make functions globally available for inline onclick handlers
         window.goToQuiz = goToQuiz;
         window.shareResult = shareResult;
-        window.toggleAllTypes = toggleAllTypes;
     </script>
 </body>
 </html>
