@@ -1,5 +1,5 @@
 // Quiz Questions Data
-export const questions = [
+const questions = [
     {
         question: "Choose one of the following:",
         answers: [
@@ -34,7 +34,7 @@ export const questions = [
         question: "Which message would you be most excited to receive?",
         answers: [
             { text: "[An Instagram Reel about something you’re really into]", type: "builder" },
-            { text: "We’ve got an internship opening that sounds like something you’d go for.", type: "networker" },
+            { text: "We’ve got an internship opening that sounds like something you’d go for", type: "networker" },
             { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside?", type: "social" },
             { text: "You're not gonna believe what just happened... can I call", type: "connector" }
@@ -53,7 +53,7 @@ export const questions = [
 ];
 
 // Archetype Data
-export const archetypes = {
+const archetypes = {
     builder: {
         title: "The Builder",
         subtitle: "You thrive on ideas, independence, and getting things done.",
@@ -92,7 +92,7 @@ export const archetypes = {
 };
 
 // Configuration
-export const CONFIG = {
+const CONFIG = {
     googleForms: {
         formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
         archetypeEntry: 'entry.1977860921',

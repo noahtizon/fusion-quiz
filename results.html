@@ -49,9 +49,8 @@
 
     <div class="credit">Made by Noah Tizon</div>
 
-    <script type="module">
-        // Import archetype data
-        import { archetypes } from './data.js';
+    <script src="data.js"></script>
+    <script>
 
         // Get archetype from URL path
         function getArchetypeFromUrl() {
@@ -84,50 +83,31 @@
                 programsList.appendChild(span);
             });
 
-            // Populate all types (including current)
+            // Populate all types
             const allTypesGrid = document.getElementById('all-types-grid');
             allTypesGrid.innerHTML = '';
             
-            // Create first row (3 cards)
-            const firstRow = document.createElement('div');
-            firstRow.className = 'all-types-row first-row';
+            const createTypeCard = (key, data) => {
+                const card = document.createElement('div');
+                card.className = key === archetype ? 'all-type-card current' : 'all-type-card';
+                card.onclick = () => window.location.href = `/${key}`;
+                card.innerHTML = `<div class="all-type-icon">${data.icon}</div><div class="all-type-title">${data.title}</div>`;
+                return card;
+            };
             
-            // Create second row (2 cards)
-            const secondRow = document.createElement('div');
-            secondRow.className = 'all-types-row second-row';
-            
-            const archetypeEntries = Object.entries(archetypes);
-            
-            // Add first 3 cards to first row
-            archetypeEntries.slice(0, 3).forEach(([key, archetypeData]) => {
-                const typeCard = document.createElement('div');
-                typeCard.className = key === archetype ? 'all-type-card current' : 'all-type-card';
-                typeCard.onclick = () => window.location.href = `/${key}`;
-                
-                typeCard.innerHTML = `
-                    <div class="all-type-icon">${archetypeData.icon}</div>
-                    <div class="all-type-title">${archetypeData.title}</div>
-                `;
-                
-                firstRow.appendChild(typeCard);
+            const entries = Object.entries(archetypes);
+            const [firstRow, secondRow] = [
+                document.createElement('div'),
+                document.createElement('div')
+            ].map(el => {
+                el.className = el === firstRow ? 'all-types-row first-row' : 'all-types-row second-row';
+                return el;
             });
             
-            // Add last 2 cards to second row
-            archetypeEntries.slice(3, 5).forEach(([key, archetypeData]) => {
-                const typeCard = document.createElement('div');
-                typeCard.className = key === archetype ? 'all-type-card current' : 'all-type-card';
-                typeCard.onclick = () => window.location.href = `/${key}`;
-                
-                typeCard.innerHTML = `
-                    <div class="all-type-icon">${archetypeData.icon}</div>
-                    <div class="all-type-title">${archetypeData.title}</div>
-                `;
-                
-                secondRow.appendChild(typeCard);
-            });
+            entries.slice(0, 3).forEach(([key, data]) => firstRow.appendChild(createTypeCard(key, data)));
+            entries.slice(3, 5).forEach(([key, data]) => secondRow.appendChild(createTypeCard(key, data)));
             
-            allTypesGrid.appendChild(firstRow);
-            allTypesGrid.appendChild(secondRow);
+            allTypesGrid.append(firstRow, secondRow);
 
             // Set for sharing
             window.lastResult = {
@@ -198,14 +178,10 @@
         function toggleAllTypes() {
             const dropdown = document.getElementById('all-types-dropdown');
             const arrow = document.querySelector('.dropdown-arrow');
+            const isHidden = dropdown.style.display === 'none' || dropdown.style.display === '';
             
-            if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-                dropdown.style.display = 'block';
-                arrow.textContent = '▲';
-            } else {
-                dropdown.style.display = 'none';
-                arrow.textContent = '▼';
-            }
+            dropdown.style.display = isHidden ? 'block' : 'none';
+            arrow.textContent = isHidden ? '▲' : '▼';
         }
 
         // Make functions globally available for inline onclick handlers

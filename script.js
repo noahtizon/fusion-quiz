@@ -1,12 +1,4 @@
-// Import data and utilities
-import { questions, CONFIG } from './data.js';
-import { 
-    shuffleArray, 
-    addButtonAnimation, 
-    getElement, 
-    calculateProgress, 
-    formatProgressText 
-} from './utils.js';
+// Data and utilities will be loaded via script tags
 
 // Quiz State
 let currentQuestion = 0;
@@ -19,8 +11,8 @@ let scores = {
     connector: 0
 };
 
-// Google Forms tracking configuration
-const TRACKING_CONFIG = CONFIG.googleForms;
+// Google Forms tracking configuration (will be set after data loads)
+let TRACKING_CONFIG;
 
 // Submit result to Google Form with mobile-optimized fallbacks
 async function submitToGoogleForm(resultType) {
@@ -39,73 +31,49 @@ async function submitToGoogleForm(resultType) {
             }
         });
 
-        // 0) Best-effort first: sendBeacon (survives page unload)
-        try {
-            const ok = navigator.sendBeacon?.(TRACKING_CONFIG.formUrl, fd);
-            if (ok) {
-                console.log('✅ Result submitted via sendBeacon');
-                return;
-            }
-        } catch {}
-
-        // 1) fetch fallback (keepalive helps during unload on some browsers)
-        try {
-        await fetch(TRACKING_CONFIG.formUrl, {
-            method: "POST",
-                mode: "no-cors",
-                body: fd,
-                keepalive: true
-            });
-            console.log('✅ Result submitted via fetch (keepalive)');
-            return;
-        } catch {}
-
-        // 2) XHR fallback (URL-encode explicitly for Safari)
-        try {
-            const usp = new URLSearchParams();
-            for (const [k, v] of fd.entries()) usp.append(k, v);
-            
-            await new Promise((resolve, reject) => {
+        // Try submission methods in order of reliability
+        const methods = [
+            () => navigator.sendBeacon?.(TRACKING_CONFIG.formUrl, fd),
+            () => fetch(TRACKING_CONFIG.formUrl, { method: "POST", mode: "no-cors", body: fd, keepalive: true }),
+            () => new Promise((resolve, reject) => {
+                const usp = new URLSearchParams();
+                for (const [k, v] of fd.entries()) usp.append(k, v);
                 const xhr = new XMLHttpRequest();
                 xhr.open("POST", TRACKING_CONFIG.formUrl, true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onload = () => (xhr.status === 200 || xhr.status === 0) ? resolve() : reject();
                 xhr.onerror = reject;
                 xhr.send(usp.toString());
-            });
-            console.log('✅ Result submitted via XMLHttpRequest');
-            return;
-        } catch {}
-
-        // 3) iframe fallback (fixed for iOS)
-        try {
-            const iframe = document.createElement("iframe");
-            iframe.name = "gf-hidden";
-            iframe.style.display = "none";
-            document.body.appendChild(iframe);
-
-            const form = document.createElement("form");
-            form.method = "POST";
-            form.action = TRACKING_CONFIG.formUrl;
-            form.target = "gf-hidden";
-            
-            for (const [k, v] of fd.entries()) {
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = k;
-                input.value = v;
-                form.appendChild(input);
+            }),
+            () => {
+                const iframe = document.createElement("iframe");
+                iframe.name = "gf-hidden";
+                iframe.style.display = "none";
+                document.body.appendChild(iframe);
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = TRACKING_CONFIG.formUrl;
+                form.target = "gf-hidden";
+                for (const [k, v] of fd.entries()) {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = k;
+                    input.value = v;
+                    form.appendChild(input);
+                }
+                document.body.appendChild(form);
+                form.submit();
+                form.remove();
+                setTimeout(() => iframe.remove(), 1500);
             }
-            
-            document.body.appendChild(form);
-            form.submit();
-            form.remove();
-            setTimeout(() => iframe.remove(), 1500);
-            
-            console.log('✅ Result submitted via iframe fallback');
-        } catch {}
+        ];
 
-        console.log('⚠️ All submission methods attempted');
+        for (const method of methods) {
+            try {
+                await method();
+                return;
+            } catch {}
+        }
     } catch (e) {
         console.warn("❌ Form submission failed:", e);
     }
@@ -118,10 +86,6 @@ const progressFill = getElement('progress-fill');
 const progressText = getElement('progress-text');
 const questionText = getElement('question-text');
 const answersContainer = getElement('answers-container');
-
-// Utility functions are now imported from utils.js
-
-
 
 // Quiz Functions
 function startQuiz() {
@@ -144,59 +108,39 @@ function showQuestion() {
     questionText.textContent = question.question;
     
     // Update progress
-    const progress = calculateProgress(currentQuestion, questions.length);
-    progressFill.style.width = progress + '%';
+    progressFill.style.width = calculateProgress(currentQuestion, questions.length) + '%';
     progressText.textContent = formatProgressText(currentQuestion, questions.length);
     
     // Show/hide back button
-    const backBtn = document.getElementById('back-btn');
-    if (currentQuestion > 0) {
-        backBtn.style.display = 'block';
-    } else {
-        backBtn.style.display = 'none';
-    }
+    document.getElementById('back-btn').style.display = currentQuestion > 0 ? 'block' : 'none';
     
-    // Clear previous answers
+    // Clear and populate answers
     answersContainer.innerHTML = '';
-    
-    // Use shuffled answers to prevent predictable patterns
-    const answersToShow = question.shuffledAnswers || question.answers;
-    
-    // Add answer buttons with randomized order
-    answersToShow.forEach((answer, index) => {
+    (question.shuffledAnswers || question.answers).forEach(answer => {
         const button = document.createElement('button');
         button.className = 'answer-btn';
         button.textContent = answer.text;
         button.onclick = (e) => selectAnswer(answer.type, e);
-        
-        // Add button immediately without delay
+        button.style.animation = 'fadeIn 0.3s ease-in-out both';
         answersContainer.appendChild(button);
-        button.style.animation = `fadeIn 0.3s ease-in-out both`;
     });
 }
 
 function selectAnswer(type, e) {
-    // Store the answer
     userAnswers[currentQuestion] = type;
     
-    // Update scores (recalculate from all stored answers)
+    // Recalculate scores
     scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
-    userAnswers.forEach(answer => {
-        if (answer) scores[answer]++;
-    });
+    userAnswers.forEach(answer => answer && scores[answer]++);
     
-    // Add selection animation
-    const selectedBtn = e.currentTarget;
-    selectedBtn.style.background = 'linear-gradient(135deg, #FFD700, #FFC107)';
-    selectedBtn.style.transform = 'scale(0.95)';
+    // Selection animation
+    const btn = e.currentTarget;
+    btn.style.background = 'linear-gradient(135deg, #FFD700, #FFC107)';
+    btn.style.transform = 'scale(0.95)';
     
     setTimeout(() => {
         currentQuestion++;
-        if (currentQuestion < questions.length) {
-            showQuestion();
-        } else {
-            showResults();
-        }
+        currentQuestion < questions.length ? showQuestion() : showResults();
     }, CONFIG.quiz.animationDelay);
 }
 
@@ -211,44 +155,27 @@ async function showResults() {
     // Calculate result with enhanced tie-breaker logic
     let resultType;
     
-    // Debug logging
-    console.log('Final scores:', scores);
-    console.log('User answers:', userAnswers);
-    
     // Check if all categories have 1 point (1-1-1-1-1 tie scenario)
     const allCategoriesHaveOne = Object.values(scores).every(score => score === 1);
     
     if (allCategoriesHaveOne) {
-        // Use the last answer as tie-breaker for 1-1-1-1-1
         resultType = userAnswers[userAnswers.length - 1];
-        console.log('1-1-1-1-1 tie detected, using last answer:', resultType);
     } else {
-        // Find highest score
         const maxScore = Math.max(...Object.values(scores));
         const highestScorers = Object.keys(scores).filter(type => scores[type] === maxScore);
         
         if (highestScorers.length === 1) {
-            // Clear winner
             resultType = highestScorers[0];
-            console.log('Clear winner:', resultType, 'with score:', maxScore);
         } else {
-            // Multiple highest scores (tie) - find most recent answer from tied categories
-            let mostRecentTiedAnswer = null;
-            
-            // Go through answers from most recent to oldest
+            // Find most recent answer from tied categories
             for (let i = userAnswers.length - 1; i >= 0; i--) {
                 if (highestScorers.includes(userAnswers[i])) {
-                    mostRecentTiedAnswer = userAnswers[i];
+                    resultType = userAnswers[i];
                     break;
                 }
             }
-            
-            resultType = mostRecentTiedAnswer;
-            console.log('Tie detected between:', highestScorers, 'using most recent tied answer as tie-breaker:', resultType);
         }
     }
-    
-    console.log('Final result:', resultType);
     
     // Submit result to Google Form and wait for it to complete
     try {
@@ -259,12 +186,12 @@ async function showResults() {
     window.location.href = `/${resultType}`;
 }
 
-
-
 function retakeQuiz() {
-    // Redirect back to main quiz
     window.location.href = '/';
 }
+
+// Initialize after data loads
+TRACKING_CONFIG = CONFIG.googleForms;
 
 // Make functions globally available for inline onclick handlers
 window.startQuiz = startQuiz;
@@ -289,3 +216,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
