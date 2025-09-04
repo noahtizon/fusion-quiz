@@ -615,6 +615,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .all-type-card:hover {
