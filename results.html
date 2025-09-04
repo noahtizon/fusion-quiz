@@ -178,7 +178,7 @@
         function toggleAllTypes() {
             const dropdown = document.getElementById('all-types-dropdown');
             const arrow = document.querySelector('.dropdown-arrow');
-            const isHidden = dropdown.style.display === 'none' || dropdown.style.display === '';
+            const isHidden = dropdown.style.display === 'none' || dropdown.style.display === '' || getComputedStyle(dropdown).display === 'none';
             
             dropdown.style.display = isHidden ? 'block' : 'none';
             arrow.textContent = isHidden ? '▲' : '▼';
