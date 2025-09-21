@@ -692,7 +692,13 @@ h1 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .quiz-container {
-        padding: 15px;
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .logo-container {
+        margin-bottom: 1.5rem;
     }
     
     h1 {
@@ -775,6 +781,14 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    .quiz-container {
+        padding: 8px;
+        padding-top: 15px;
+    }
+    
+    .logo-container {
+        margin-bottom: 1rem;
+    }
     
     .fusion-logo {
         width: 80px;
