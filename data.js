@@ -21,15 +21,15 @@ const questions = [
         ]
     },
     {
-        question: "What’s something you'd always want ready to go in your bag?",
+        question: "What’s your go-to move when things get stressful?",
         answers: [
-            { text: "A notebook for random ideas", type: "builder" },
-            { text: "A crisp resume", type: "networker" },
-            { text: "Your calendar for the week fully planned out", type: "academic" },
-            { text: "Speaker and deck of cards", type: "social" },
-            { text: "Snacks to share with people around you", type: "connector" }
+          { text: "Make a list and try to fix one thing at a time", type: "builder" },
+          { text: "Reach out to someone who’s been in your shoes", type: "networker" },
+          { text: "Time-block your week and refocus", type: "academic" },
+          { text: "Vent to a friend and laugh it off", type: "social" },
+          { text: "Take a step back and check in with the people you care about", type: "connector" }
         ]
-    },
+       },
     {
         question: "Which message would you be most excited to receive?",
         answers: [
