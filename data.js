@@ -29,8 +29,7 @@ const questions = [
             { text: "Speaker and deck of cards", type: "social" },
             { text: "Snacks to share with people around you", type: "connector" }
         ]
-    }
-    
+    },
     {
         question: "Which message would you be most excited to receive?",
         answers: [
