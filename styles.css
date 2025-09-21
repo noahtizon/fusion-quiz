@@ -692,13 +692,15 @@ h1 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .quiz-container {
-        padding: 10px;
-        align-items: flex-start;
-        padding-top: 20px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding-bottom: 60px;
     }
     
     .logo-container {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
     
     h1 {
@@ -782,12 +784,12 @@ h1 {
 
 @media (max-width: 480px) {
     .quiz-container {
-        padding: 8px;
-        padding-top: 15px;
+        padding: 15px;
+        padding-bottom: 50px;
     }
     
     .logo-container {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .fusion-logo {
