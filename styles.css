@@ -657,7 +657,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-.share-btn, .retake-btn {
+.share-btn, .retake-btn, .interest-form-btn {
     padding: 1rem 2rem;
     border: none;
     border-radius: var(--border-radius);
@@ -665,6 +665,9 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .share-btn {
@@ -687,6 +690,28 @@ h1 {
 .retake-btn:hover {
     background: var(--dark-gray);
     transform: translateY(-2px);
+}
+
+.interest-form-btn {
+    background: linear-gradient(135deg, var(--dark-yellow), #FF6F00);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 143, 0, 0.3);
+}
+
+.interest-form-btn:hover {
+    background: linear-gradient(135deg, #FF6F00, #E65100);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4);
+    color: white;
+}
+
+.homepage-btn {
+    margin-top: 1rem;
+    max-width: 350px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 /* Responsive Design */
@@ -749,7 +774,7 @@ h1 {
         align-items: center;
     }
     
-    .share-btn, .retake-btn {
+    .share-btn, .retake-btn, .interest-form-btn {
         width: 100%;
         max-width: 250px;
     }
