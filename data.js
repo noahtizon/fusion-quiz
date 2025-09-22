@@ -59,35 +59,35 @@ const archetypes = {
         subtitle: "You thrive on ideas, independence, and getting things done.",
         icon: "🔧",
         description: "You love a good project, something to build, fix, or figure out. Whether it's a new tool, a cool side idea, or just learning how things work, you're most in your element when you have a challenge in front of you. People trust you to get things done, and somehow, you always do. You're a creator, a problem solver, and the type who always has something in the works.",
-        programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "Build Meetings", "FUSIONCon"]
+        programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "FUSIONCon", "FUSIONBook Committee"]
     },
     networker: {
         title: "The Networker",
         subtitle: "You're the LinkedIn warrior, making connections wherever you go.",
         icon: "🤝",
         description: "You've got your eye on the horizon. You've got vision, drive, and maybe a Google Calendar so packed it scares people. You know how to present yourself, how to find the right people, and how to turn a casual conversation into a connection. You carry yourself with confidence, communicate with purpose, and aren't afraid to chase what you want. You probably have 500+ connections already.",
-        programs: ["Professional Workshops", "Alumni Networking", "Industry Meetups", "FUSION Internship"]
+        programs: ["Professional Development Programs", "Alumni Networking", "Industry Events", "FUSION Internship"]
     },
     academic: {
         title: "The Academic Weapon",
         subtitle: "You set the curve and help others hit it too.",
         icon: "📚",
         description: "You're locked in. Whether it's your calendar, your color-coded notes, or your ability to juggle multiple deadlines, you know how to manage your time and stay ahead. People turn to you for help not just because you're smart, but because you're reliable, encouraging, and genuinely want others to succeed too. You make your success look effortless and you quietly inspire others to do the same.",
-        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "FUSION Mentorship"]
+        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "FUSION Mentorship", "Study Groups"]
     },
     social: {
         title: "The Social Butterfly",
         subtitle: "You live for big energy, new people, and spontaneous plans.",
         icon: "🎉",
         description: "You're the one who keeps things moving and makes sure everyone's having a good time. Whether it's a last-minute hangout, a big group event, or just bumping into someone on campus, you've got a way of making things feel lively. You're energized by meeting new people, great at pulling others in, and always down to make something happen. For you, college isn't just about the classes, it's about who you meet and the memories you make along the way.",
-        programs: ["FU-Fridays", "Winter Retreat", "FU-Fit/Intramurals", "Community Events", "FUSION Fams"]
+        programs: ["FU-Fridays", "Winter Retreat", "FU-Fit", "Intramurals", "FUSION Fams", "FUSION Gaming"]
     },
     connector: {
         title: "The Connector",
         subtitle: "You make people feel seen, supported, and at home.",
         icon: "❤️",
         description: "You're the one people turn to, not because you're the loudest, but because you're genuine, grounded, and you care. You notice the small things. You check in when someone goes quiet. You're the one who makes sure everyone feels included, whether it's in a group chat, a hangout, or a creating aspace that reflects your shared culture and values. You thrive in the deep conversations, the genuine support, and creating a sense of belonging.",
-        programs: ["FUSION Families", "FUSION Mentorship", "Cultural Workshops", "Alyansa Collaborations"]
+        programs: ["FUSION Families", "FUSION Mentorship", "Cultural Workshops", "Alyansa Collaborations", "Tagalog Workshops"]
     }
 };
 
