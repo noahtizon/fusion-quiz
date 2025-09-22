@@ -726,6 +726,18 @@ h1 {
     display: inline-block;
 }
 
+.interest-form-btn svg {
+    margin-left: 0.4em;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.interest-form-btn:hover svg {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .quiz-container {
