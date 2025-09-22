@@ -714,14 +714,15 @@ h1 {
 
 
 .interest-form-link {
-    color: var(--dark-yellow);
+    color: #E65100;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .interest-form-link:hover {
-    color: #FF6F00;
+    color: #D84315;
     text-decoration: underline;
 }
 
@@ -730,6 +731,7 @@ h1 {
     vertical-align: middle;
     opacity: 0.8;
     transition: all 0.3s ease;
+    display: inline;
 }
 
 .interest-form-link:hover svg {
