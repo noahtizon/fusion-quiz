@@ -705,35 +705,34 @@ h1 {
     color: white;
 }
 
-.homepage-btn {
-    margin-top: 2.5rem;
-    max-width: 300px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-
-.interest-form-section {
+.homepage-note {
     margin-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--dark-gray);
     text-align: center;
 }
 
-.standalone-btn {
-    max-width: 280px;
-    margin: 0 auto;
-    display: inline-block;
+
+.interest-form-link {
+    color: var(--fusion-yellow);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.interest-form-btn svg {
-    margin-left: 0.4em;
+.interest-form-link:hover {
+    color: var(--bright-yellow);
+    text-decoration: underline;
+}
+
+.interest-form-link svg {
+    margin-left: 0.3em;
     vertical-align: middle;
     opacity: 0.8;
     transition: all 0.3s ease;
 }
 
-.interest-form-btn:hover svg {
+.interest-form-link:hover svg {
     opacity: 1;
     transform: translate(2px, -2px);
 }
@@ -803,10 +802,6 @@ h1 {
         max-width: 250px;
     }
     
-    .standalone-btn {
-        width: 100%;
-        max-width: 280px;
-    }
     
     .dropdown-toggle {
         max-width: 180px;
