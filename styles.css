@@ -707,7 +707,7 @@ h1 {
 
 .homepage-btn {
     margin-top: 1rem;
-    max-width: 350px;
+    max-width: 300px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -786,9 +786,14 @@ h1 {
         align-items: center;
     }
     
-    .share-btn, .retake-btn, .interest-form-btn {
+    .share-btn, .retake-btn {
         width: 100%;
         max-width: 250px;
+    }
+    
+    .interest-form-btn {
+        width: 100%;
+        max-width: 220px;
     }
     
     .dropdown-toggle {
