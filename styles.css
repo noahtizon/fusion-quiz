@@ -714,6 +714,18 @@ h1 {
     display: block;
 }
 
+.external-link-icon {
+    font-size: 0.9em;
+    margin-left: 0.3em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.interest-form-btn:hover .external-link-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .quiz-container {
