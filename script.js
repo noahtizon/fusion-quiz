@@ -95,6 +95,13 @@ function startQuiz() {
     userAnswers = [];
     scores = { builder: 0, networker: 0, academic: 0, social: 0, connector: 0 };
     
+    // Small scroll offset on mobile to improve initial view
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            window.scrollTo({ top: 20, behavior: 'smooth' });
+        }, 100);
+    }
+    
     // Shuffle answers for each question to prevent predictable patterns
     questions.forEach(question => {
         question.shuffledAnswers = shuffleArray(question.answers);

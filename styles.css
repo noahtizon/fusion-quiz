@@ -746,8 +746,8 @@ h1 {
         align-items: flex-start;
         justify-content: center;
         min-height: 100vh;
-        padding-top: 15vh;
-        padding-bottom: 60px;
+        padding-top: 10vh;
+        padding-bottom: 40px;
     }
     
     .logo-container {
@@ -837,8 +837,8 @@ h1 {
 @media (max-width: 480px) {
     .quiz-container {
         padding: 15px;
-        padding-top: 12vh;
-        padding-bottom: 50px;
+        padding-top: 8vh;
+        padding-bottom: 35px;
     }
     
     .logo-container {
