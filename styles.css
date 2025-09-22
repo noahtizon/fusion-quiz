@@ -714,60 +714,19 @@ h1 {
     display: block;
 }
 
-.external-link-icon {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-left: 0.4em;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.external-link-icon::before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 8px;
-    height: 8px;
-    border: 1px solid currentColor;
-    border-left: none;
-    border-bottom: none;
-}
-
-.external-link-icon::after {
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 8px;
-    width: 4px;
-    height: 1px;
-    background: currentColor;
-    transform: rotate(45deg);
-    transform-origin: left center;
-}
-
-.interest-form-btn:hover .external-link-icon {
-    opacity: 1;
-    transform: translate(2px, -2px);
-}
 
 .interest-form-section {
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
     padding: 0 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    clear: both;
 }
 
 .standalone-btn {
     max-width: 280px;
-    width: 100%;
-    display: block;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 /* Responsive Design */
