@@ -727,20 +727,21 @@ h1 {
 .external-link-icon::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
     border: 1px solid currentColor;
-    border-radius: 1px;
+    border-left: none;
+    border-bottom: none;
 }
 
 .external-link-icon::after {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 6px;
+    top: 7px;
+    left: 7px;
+    width: 4px;
     height: 1px;
     background: currentColor;
     transform: rotate(45deg);
@@ -757,15 +758,12 @@ h1 {
     margin-bottom: 2rem;
     text-align: center;
     padding: 0 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .standalone-btn {
     max-width: 280px;
-    width: 100%;
-    display: block;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 /* Responsive Design */
