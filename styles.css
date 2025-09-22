@@ -706,7 +706,7 @@ h1 {
 }
 
 .homepage-btn {
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     max-width: 300px;
     width: 100%;
     margin-left: auto;
@@ -715,15 +715,54 @@ h1 {
 }
 
 .external-link-icon {
-    font-size: 0.9em;
-    margin-left: 0.3em;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 0.4em;
     opacity: 0.8;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.external-link-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border: 2px solid currentColor;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+}
+
+.external-link-icon::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    transform-origin: left center;
 }
 
 .interest-form-btn:hover .external-link-icon {
     opacity: 1;
     transform: translate(2px, -2px);
+}
+
+.interest-form-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.standalone-btn {
+    max-width: 280px;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 /* Responsive Design */
@@ -791,9 +830,9 @@ h1 {
         max-width: 250px;
     }
     
-    .interest-form-btn {
+    .standalone-btn {
         width: 100%;
-        max-width: 220px;
+        max-width: 280px;
     }
     
     .dropdown-toggle {
