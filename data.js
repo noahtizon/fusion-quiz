@@ -15,7 +15,7 @@ const questions = [
         answers: [
             { text: "You're so creative and always working on something cool", type: "builder" },
             { text: "You’ve got big goals, and it shows", type: "networker" },
-            { text: "You’re the kind of person people can trust to figure things problems", type: "academic" },
+            { text: "You’re the kind of person people can trust to figure out problems", type: "academic" },
             { text: "You double the energy of any group you're in", type: "social" },
             { text: "You're great at looking out for people", type: "connector" }
         ]
@@ -80,7 +80,7 @@ const archetypes = {
         subtitle: "You live for big energy, new people, and spontaneous plans.",
         icon: "🎉",
         description: "You're the one who keeps things moving and makes sure everyone's having a good time. Whether it's a last-minute hangout, a big group event, or just bumping into someone on campus, you've got a way of making things feel lively. You're energized by meeting new people, great at pulling others in, and always down to make something happen. For you, college isn't just about the classes, it's about who you meet and the memories you make along the way.",
-        programs: ["FU-Fridays", "Winter Retreat", "FU-Fit/Intramurals", "Community Events"]
+        programs: ["FU-Fridays", "Winter Retreat", "FU-Fit/Intramurals", "Community Events", "FUSION Fams"]
     },
     connector: {
         title: "The Connector",
