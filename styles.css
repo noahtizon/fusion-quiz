@@ -747,7 +747,7 @@ h1 {
         justify-content: center;
         min-height: 100vh;
         padding-top: 10vh;
-        padding-bottom: 40px;
+        padding-bottom: 25px;
     }
     
     .logo-container {
@@ -838,7 +838,7 @@ h1 {
     .quiz-container {
         padding: 15px;
         padding-top: 8vh;
-        padding-bottom: 35px;
+        padding-bottom: 20px;
     }
     
     .logo-container {
