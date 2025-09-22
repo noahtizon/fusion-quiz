@@ -15,7 +15,7 @@ const questions = [
         answers: [
             { text: "You're so creative and always working on something cool", type: "builder" },
             { text: "You’ve got big goals, and it shows", type: "networker" },
-            { text: "You’re the kind of person people can trust to figure out problems", type: "academic" },
+            { text: "You’re the one everyone can count on when it matters", type: "academic" },
             { text: "You double the energy of any group you're in", type: "social" },
             { text: "You're great at looking out for people", type: "connector" }
         ]
@@ -33,7 +33,7 @@ const questions = [
     {
         question: "Which message would you be most excited to receive?",
         answers: [
-            { text: "Everyone's talking about how cool that project you showed off is", type: "builder" },
+            { text: "You inspired me to finally start that project I’ve been putting off", type: "builder" },
             { text: "We’ve got an internship opening that sounds like something you’d fit well in", type: "networker" },
             { text: "THE FINAL GOT CANCELED", type: "academic" },
             { text: "Seaside tonight?", type: "social" },
@@ -45,9 +45,9 @@ const questions = [
         answers: [
             { text: "A community that supports your ideas and helps bring them to life", type: "builder" },
             { text: "Opportunities to grow and people who push you forward", type: "networker" },
-            { text: "A supportive structure that helps you grow without burning out", type: "academic" },
+            { text: "A supportive structure that helps you grow and keep you on track", type: "academic" },
             { text: "Exciting events, shared memories, and good vibes", type: "social" },
-            { text: "A space where people respect each other and feel welcome", type: "connector" }
+            { text: "A close-knit community where people respect each other and feel welcome", type: "connector" }
         ]
     }
 ];
