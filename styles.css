@@ -714,14 +714,14 @@ h1 {
 
 
 .interest-form-link {
-    color: var(--fusion-yellow);
+    color: var(--dark-yellow);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .interest-form-link:hover {
-    color: var(--bright-yellow);
+    color: #FF6F00;
     text-decoration: underline;
 }
 
