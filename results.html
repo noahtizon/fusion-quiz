@@ -27,13 +27,13 @@
 
     <section class="result-grid">
       <article class="result-about">
-        <p class="section-label">WHY IT FITS</p>
+        <p class="section-label">ABOUT YOUR TYPE</p>
         <p id="result-description-text"></p>
       </article>
       <article class="starter-card">
-        <p class="section-label">YOUR FUSION STARTER PACK</p>
+        <p class="section-label">PROGRAMS TO CHECK OUT</p>
         <div id="programs-list" class="programs-list"></div>
-        <p class="booth-prompt">👋 <strong>Show this to someone at the booth.</strong><br>We'll tell you where to start.</p>
+        <p class="booth-prompt"><strong>Show your result to someone at the booth</strong><br>and we can tell you more about these programs.</p>
       </article>
     </section>
 
@@ -64,7 +64,7 @@
       data.programs.forEach((program, i) => {
         const item = document.createElement('div');
         item.className = 'program-row';
-        item.innerHTML = `<span>0${i + 1}</span><strong>${program}</strong><i>↗</i>`;
+        item.innerHTML = `<span>0${i + 1}</span><strong>${program}</strong>`;
         list.appendChild(item);
       });
       const all = document.getElementById('all-types-grid');
