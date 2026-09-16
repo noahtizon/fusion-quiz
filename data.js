@@ -1,111 +1,54 @@
-// Quiz Questions Data
 const questions = [
-    {
-        question: "Choose one of the following:",
-        answers: [
-            { text: "A $500 gift card to spend on your favorite hobby", type: "builder" },
-            { text: "Coffee chat with the CEO of your dream company", type: "networker" },
-            { text: "Guaranteed A’s on all your classes this quarter", type: "academic" },
-            { text: "Front-row tickets to a big concert", type: "social" },
-            { text: "An all you can eat dinner with your closest friends", type: "connector" }
-        ]
-    },
-    {
-        question: "Which compliment would make your day?",
-        answers: [
-            { text: "You're so creative and always working on something cool", type: "builder" },
-            { text: "You’ve got big goals, and it shows", type: "networker" },
-            { text: "You’re the one everyone can count on when it matters", type: "academic" },
-            { text: "You double the energy of any group you're in", type: "social" },
-            { text: "You're great at looking out for people", type: "connector" }
-        ]
-    },
-    {
-        question: "What’s your go-to move when things get stressful?",
-        answers: [
-          { text: "Make a list and try to fix one thing at a time", type: "builder" },
-          { text: "Reach out to someone who’s been in your shoes", type: "networker" },
-          { text: "Time-block your week and refocus", type: "academic" },
-          { text: "Vent to a friend and laugh it off", type: "social" },
-          { text: "Take a step back and check in with the people you care about", type: "connector" }
-        ]
-       },
-    {
-        question: "Which message would you be most excited to receive?",
-        answers: [
-            { text: "You inspired me to finally start that project I’ve been putting off", type: "builder" },
-            { text: "We’ve got an internship opening that sounds like something you’d fit well in", type: "networker" },
-            { text: "THE FINAL GOT CANCELED", type: "academic" },
-            { text: "Seaside tonight?", type: "social" },
-            { text: "You're not gonna believe what just happened... can I call", type: "connector" }
-        ]
-    },
-    {
-        question: "What do you value most in a community?",
-        answers: [
-            { text: "A community that supports your ideas and helps bring them to life", type: "builder" },
-            { text: "Opportunities to grow and people who push you forward", type: "networker" },
-            { text: "A supportive structure that helps you grow and keep you on track", type: "academic" },
-            { text: "Exciting events, shared memories, and good vibes", type: "social" },
-            { text: "A close-knit community where people respect each other and feel welcome", type: "connector" }
-        ]
-    }
+  {
+    eyebrow: "START HERE",
+    question: "What are you looking for at UCI?",
+    answers: [
+      { text: "Build cool things", icon: "🔧", weights: { builder: 3, academic: 1 }, lesson: { kicker: "MAKE SOMETHING REAL", title: "FUSION Projects", body: "Join a year-long technical project team, build something real, and showcase your work at FUSIONCon." } },
+      { text: "Career opportunities", icon: "💼", weights: { networker: 3, academic: 1 }, lesson: { kicker: "LEVEL UP", title: "Professional Development", body: "Meet industry professionals and alumni through networking events, workshops, and career programming." } },
+      { text: "Academic support", icon: "📚", weights: { academic: 3, connector: 1 }, lesson: { kicker: "LOCK IN TOGETHER", title: "Academic Programs", body: "Find study spaces, academic resources, workshops, and other students taking the same classes." } },
+      { text: "People to have fun with", icon: "🎉", weights: { social: 3, connector: 1 }, lesson: { kicker: "THERE'S ALWAYS SOMETHING", title: "Socials", body: "From FU-Fridays to retreats and other events, there are plenty of ways to meet people and make memories outside class." } },
+      { text: "A community I belong to", icon: "❤️", weights: { connector: 3, social: 1 }, lesson: { kicker: "FIND YOUR PEOPLE", title: "FUSION Fams", body: "Join a smaller community within FUSION and build closer friendships throughout the year." } }
+    ]
+  },
+  {
+    eyebrow: "PICK A SIDE QUEST",
+    question: "What sounds most like your kind of thing?",
+    answers: [
+      { text: "Make something worth remembering", icon: "📸", weights: { builder: 2, connector: 1, social: 1 }, lesson: { kicker: "CAPTURE THE YEAR", title: "FUSIONBook", body: "Help capture the people, memories, and moments that make up FUSION and turn them into our annual yearbook." } },
+      { text: "Explore culture & community", icon: "🌏", weights: { connector: 3, academic: 1 }, lesson: { kicker: "MORE THAN STEM", title: "Cultural Programming", body: "Connect with Filipinx culture and identity through workshops, discussions, events, and community experiences." } },
+      { text: "Get a team together and compete", icon: "🏐", weights: { social: 3, builder: 1 }, lesson: { kicker: "GET IN THE GAME", title: "FU-Fit & Intramurals", body: "Play alongside other FUSION members through IM teams, sports, and active events throughout the year." } },
+      { text: "Meet people outside my usual circle", icon: "🤝", weights: { networker: 2, connector: 2 }, lesson: { kicker: "THE BIGGER COMMUNITY", title: "Alyansa", body: "Connect with the wider Filipinx community at UCI through collaborations with our fellow Alyansa organizations." } },
+      { text: "Find my people", icon: "🛋️", weights: { connector: 3, social: 1 }, lesson: { kicker: "YOUR PEOPLE WITHIN FUSION", title: "FUSION Mentorship", body: "Join a mentorship line with people who share similar interests, goals, and experiences." } }
+    ]
+  },
+  {
+    eyebrow: "YOUR NEXT MOVE",
+    question: "You've been in FUSION for a bit. How would you want to get involved?",
+    answers: [
+      { text: "Lead a team and build something", icon: "🛠️", weights: { builder: 3, networker: 1 }, lesson: { kicker: "TAKE THE LEAD", title: "Project Leadership", body: "Become a project lead and guide a team through designing and building a year-long technical project." } },
+      { text: "Get experience behind the scenes", icon: "🌱", weights: { networker: 3, builder: 1 }, lesson: { kicker: "SEE HOW IT RUNS", title: "FUSION Internship", body: "Apply to our internship program to work alongside board and learn how different parts of FUSION operate." } },
+      { text: "Help someone else grow", icon: "🫶", weights: { connector: 3, academic: 1 }, lesson: { kicker: "PASS IT FORWARD", title: "Mentorship", body: "Get involved in mentorship and support other members through their college experience." } },
+      { text: "Help build a community", icon: "🏠", weights: { connector: 2, social: 2 }, lesson: { kicker: "MAKE FUSION FEEL SMALLER", title: "FUSION Fams", body: "Take on a role within your Fam and help create a close-knit community within FUSION." } },
+      { text: "Create what people see", icon: "🎨", weights: { builder: 2, social: 1, networker: 1 }, lesson: { kicker: "SHAPE THE FUSION LOOK", title: "Publicity & Media", body: "Join a committee and contribute through design, content, photography, video, social media, and more." } }
+    ]
+  }
 ];
 
-// Archetype Data
 const archetypes = {
-    builder: {
-        title: "The Builder",
-        subtitle: "You thrive on ideas, independence, and getting things done.",
-        icon: "🔧",
-        description: "You love a good project, something to build, fix, or figure out. Whether it's a new tool, a cool side idea, or just learning how things work, you're most in your element when you have a challenge in front of you. People trust you to get things done, and somehow, you always do. You're a creator, a problem solver, and the type who always has something in the works.",
-        programs: ["FUSION Engineering Project", "FUSION ICS Project", "Technical Workshops", "FUSIONCon", "FUSIONBook Committee"]
-    },
-    networker: {
-        title: "The Networker",
-        subtitle: "You're the LinkedIn warrior, making connections wherever you go.",
-        icon: "🤝",
-        description: "You've got your eye on the horizon. You've got vision, drive, and maybe a Google Calendar so packed it scares people. You know how to present yourself, how to find the right people, and how to turn a casual conversation into a connection. You carry yourself with confidence, communicate with purpose, and aren't afraid to chase what you want. You probably have 500+ connections already.",
-        programs: ["Professional Development Programs", "Alumni Networking", "Industry Events", "FUSION Internship"]
-    },
-    academic: {
-        title: "The Academic Weapon",
-        subtitle: "You set the curve and help others hit it too.",
-        icon: "📚",
-        description: "You're locked in. Whether it's your calendar, your color-coded notes, or your ability to juggle multiple deadlines, you know how to manage your time and stay ahead. People turn to you for help not just because you're smart, but because you're reliable, encouraging, and genuinely want others to succeed too. You make your success look effortless and you quietly inspire others to do the same.",
-        programs: ["Study Hours", "Academic Workshops", "Outreach Opportunities", "FUSION Mentorship", "Study Groups"]
-    },
-    social: {
-        title: "The Social Butterfly",
-        subtitle: "You live for big energy, new people, and spontaneous plans.",
-        icon: "🎉",
-        description: "You're the one who keeps things moving and makes sure everyone's having a good time. Whether it's a last-minute hangout, a big group event, or just bumping into someone on campus, you've got a way of making things feel lively. You're energized by meeting new people, great at pulling others in, and always down to make something happen. For you, college isn't just about the classes, it's about who you meet and the memories you make along the way.",
-        programs: ["FU-Fridays", "Winter Retreat", "FU-Fit", "Intramurals", "FUSION Fams", "FUSION Gaming"]
-    },
-    connector: {
-        title: "The Connector",
-        subtitle: "You make people feel seen, supported, and at home.",
-        icon: "❤️",
-        description: "You're the one people turn to, not because you're the loudest, but because you're genuine, grounded, and you care. You notice the small things. You check in when someone goes quiet. You're the one who makes sure everyone feels included, whether it's in a group chat, a hangout, or a creating aspace that reflects your shared culture and values. You thrive in the deep conversations, the genuine support, and creating a sense of belonging.",
-        programs: ["FUSION Families", "FUSION Mentorship", "Cultural Workshops", "Alyansa Collaborations", "Tagalog Workshops"]
-    }
+  builder: { title: "The Builder", subtitle: "You turn ideas into things people can actually see, use, and rally around.", icon: "🔧", description: "You light up when there is something to make, improve, or figure out. FUSION gives you room to build with other people, whether that means joining a project team, creating for the org, or eventually leading something yourself.", programs: ["FUSION Projects", "FUSIONCon", "Project Leadership"] },
+  networker: { title: "The Networker", subtitle: "You're curious about what's next and you're not afraid to go find it.", icon: "🤝", description: "You gravitate toward opportunities, new people, and experiences that move you forward. FUSION can be a launchpad for meeting alumni and industry professionals, growing your skills, and taking on roles with real responsibility.", programs: ["Professional Development", "Alumni & Industry", "FUSION Internship"] },
+  academic: { title: "The Academic Weapon", subtitle: "You like having a plan, good people around you, and somewhere to lock in.", icon: "📚", description: "You value growth, structure, and people who help each other succeed. FUSION is a place to find classmates, study alongside friends, share resources, and make the academic side of UCI feel a little less solo.", programs: ["Academic Programs", "Study Hours", "Mentorship"] },
+  social: { title: "The Social Butterfly", subtitle: "You bring the energy and make college feel like college.", icon: "🎉", description: "You are here for the people and the memories as much as anything else. FUSION has plenty of ways to turn familiar faces into actual friends, from weekly socials and sports to the bigger moments throughout the year.", programs: ["FU-Fridays", "FU-Fit & Intramurals", "FUSION Fams"] },
+  connector: { title: "The Connector", subtitle: "You care about finding your people and making sure others find theirs too.", icon: "❤️", description: "Community matters to you. You notice the people around you and value spaces where everyone can feel included. FUSION gives you smaller communities, mentorship, cultural programming, and plenty of ways to help create that feeling for someone else.", programs: ["FUSION Fams", "FUSION Mentorship", "Cultural Programming"] }
 };
 
-// Configuration
 const CONFIG = {
-    googleForms: {
-        formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
-        archetypeEntry: 'entry.1977860921',
-        // Individual question tracking
-        question1Entry: 'entry.1746241827',
-        question2Entry: 'entry.494545951',
-        question3Entry: 'entry.1056565161',
-        question4Entry: 'entry.1904630356',
-        question5Entry: 'entry.969806202'
-    },
-    quiz: {
-        totalQuestions: 5,
-        animationDelay: 300,
-        buttonAnimationDuration: 150
-    }
+  googleForms: {
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScGSM_W8Q05jaC7Cw7ss9R0I-2QT2FuqRLz0K4QLagi03NUbw/formResponse',
+    archetypeEntry: 'entry.1977860921',
+    question1Entry: 'entry.1746241827',
+    question2Entry: 'entry.494545951',
+    question3Entry: 'entry.1056565161'
+  },
+  quiz: { totalQuestions: 3, lessonDuration: 2100, revealDuration: 850 }
 };
