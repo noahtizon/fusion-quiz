@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUSION Personality Quiz</title>
-    <link rel="icon" type="image/png" href="fusion-logo.png">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4c900">
+  <title>What's Your FUSION Type?</title>
+  <link rel="icon" type="image/png" href="fusion-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <!-- Start Screen -->
-        <div id="start-screen" class="screen active">
-            <div class="logo-container">
-                <img src="fusion-logo.png" alt="FUSION Logo" class="fusion-logo" onerror="this.style.display='none';">
-            </div>
-            <h1>Which FUSION Archetype Are You?</h1>
-            <p class="subtitle">Take this personality quiz to discover your perfect FUSION programs!</p>
-            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
-        </div>
+  <main class="app-shell">
+    <header class="brand-bar">
+      <a class="brand" href="/" aria-label="FUSION quiz home">
+        <img src="fusion-logo.png" alt="" class="brand-logo">
+        <span>FUSION @ UCI</span>
+      </a>
+      <span class="year-pill">2026–27</span>
+    </header>
 
-        <!-- Quiz Screen -->
-        <div id="quiz-screen" class="screen">
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
-                </div>
-                <span class="progress-text" id="progress-text">Question 1 of 5</span>
-            </div>
-            
-            <div class="question-container">
-                <h2 id="question-text"></h2>
-                <div class="answers-container" id="answers-container">
-                    <!-- Answers will be populated by JavaScript -->
-                </div>
-                <div class="quiz-navigation">
-                    <button class="back-btn" id="back-btn" onclick="goBack()" style="display: none;">← Back</button>
-                </div>
-            </div>
-        </div>
+    <section id="start-screen" class="screen active start-screen">
+      <div class="start-copy">
+        <p class="overline">3 QUESTIONS · ~20 SECONDS</p>
+        <h1>Find your place<br><span>in FUSION.</span></h1>
+        <p class="lede">Pick what sounds like you. We'll match you with a FUSION type and a few places to start.</p>
+        <button id="start-btn" class="primary-btn" type="button">Find my FUSION type <span>→</span></button>
+        <p class="tiny-note">No sign-up. No wrong answers. Just vibes + useful recs.</p>
+      </div>
+      <div class="start-art" aria-hidden="true">
+        <div class="orbit orbit-one"><span>🔧</span><span>📚</span><span>🎉</span></div>
+        <div class="orbit orbit-two"><span>🤝</span><span>❤️</span></div>
+        <div class="center-mark"><img src="fusion-logo.png" alt=""></div>
+      </div>
+    </section>
 
+    <section id="quiz-screen" class="screen quiz-screen" aria-live="polite">
+      <div class="progress-row">
+        <button id="back-btn" class="text-btn" type="button">← Back</button>
+        <div class="progress-track" aria-hidden="true"><div id="progress-fill" class="progress-fill"></div></div>
+        <span id="progress-text" class="progress-text">1 / 3</span>
+      </div>
+      <div class="question-wrap">
+        <p id="question-eyebrow" class="overline"></p>
+        <h2 id="question-text"></h2>
+        <div id="answers-container" class="answers-container"></div>
+      </div>
+    </section>
 
-    </div>
+    <section id="lesson-screen" class="screen lesson-screen" aria-live="polite">
+      <button id="skip-lesson" class="lesson-card" type="button" aria-label="Continue to next question">
+        <div class="lesson-number" id="lesson-icon"></div>
+        <p id="lesson-kicker" class="overline"></p>
+        <h2 id="lesson-title"></h2>
+        <p id="lesson-body"></p>
+        <div class="lesson-footer"><span>Something for you in FUSION</span><span>Tap to continue →</span></div>
+        <div id="lesson-timer" class="lesson-timer"></div>
+      </button>
+    </section>
 
-    <div class="credit">Made by Noah Tizon</div>
+    <section id="reveal-screen" class="screen reveal-screen" aria-live="polite">
+      <p class="overline">PUTTING IT TOGETHER</p>
+      <h2>Finding your<br>FUSION type<span class="dots">...</span></h2>
+      <div class="signal-row"><span>YOU</span><i></i><span>FUSION</span></div>
+    </section>
+  </main>
 
-    <script src="data.js"></script>
-    <script src="utils.js"></script>
-    <script src="script.js"></script>
+  <footer class="site-footer"><span>Filipinx Undergraduate Scientist-Engineers</span><span>Made by Noah Tizon</span></footer>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
