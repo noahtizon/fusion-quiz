@@ -1,232 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUSION Personality Quiz Results</title>
-    <link rel="icon" type="image/png" href="fusion-logo.png">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4c900">
+  <title>My FUSION Type</title>
+  <link rel="icon" type="image/png" href="fusion-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <!-- Results Screen (dynamically populated) -->
-        <div id="results-screen" class="screen active">
-            <div class="results-container">
-                <div class="result-header">
-                    <div class="result-icon" id="result-icon"></div>
-                    <h1 id="result-title"></h1>
-                    <p id="result-subtitle"></p>
-                </div>
-                
-                <div class="result-description">
-                    <p id="result-description-text"></p>
-                </div>
+  <main class="app-shell result-shell">
+    <header class="brand-bar">
+      <a class="brand" href="/"><img src="fusion-logo.png" alt="" class="brand-logo"><span>FUSION @ UCI</span></a>
+      <span class="year-pill">YOUR TYPE</span>
+    </header>
 
-                <div class="programs-section">
-                    <h3>Recommended Programs</h3>
-                    <div class="programs-list" id="programs-list"></div>
-                    <p class="programs-note">Want to get involved? <a href="https://forms.gle/hBdjBUDi3K4vG9kv8" target="_blank" class="interest-form-link">Fill out our interest form! 
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a></p>
-                </div>
+    <section class="result-hero">
+      <p class="overline">YOUR FUSION TYPE IS</p>
+      <div id="result-icon" class="result-icon"></div>
+      <h1 id="result-title"></h1>
+      <p id="result-subtitle" class="result-subtitle"></p>
+    </section>
 
-                <div class="share-section">
-                    <button class="share-btn" onclick="shareResult()">Share Your Result</button>
-                    <button class="retake-btn" onclick="goToQuiz()">Retake Quiz</button>
-                </div>
+    <section class="result-grid">
+      <article class="result-about">
+        <p class="section-label">WHY IT FITS</p>
+        <p id="result-description-text"></p>
+      </article>
+      <article class="starter-card">
+        <p class="section-label">YOUR FUSION STARTER PACK</p>
+        <div id="programs-list" class="programs-list"></div>
+        <p class="booth-prompt">👋 <strong>Show this to someone at the booth.</strong><br>We'll tell you where to start.</p>
+      </article>
+    </section>
 
-                <div class="all-types-section">
-                    <button class="dropdown-toggle" id="dropdown-toggle-btn">
-                        <span>Explore All Types</span>
-                        <span class="dropdown-arrow">▼</span>
-                    </button>
-                    <div class="all-types-dropdown" id="all-types-dropdown">
-                        <div class="all-types-grid" id="all-types-grid"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="result-actions">
+      <button id="share-btn" class="primary-btn" type="button">Share my type ↗</button>
+      <a class="secondary-btn" href="/">Retake quiz</a>
     </div>
 
-    <div class="credit">Made by Noah Tizon</div>
+    <details class="all-types-section">
+      <summary>See all five FUSION types <span>+</span></summary>
+      <div id="all-types-grid" class="all-types-grid"></div>
+    </details>
+  </main>
+  <footer class="site-footer"><span>Filipinx Undergraduate Scientist-Engineers</span><span>Made by Noah Tizon</span></footer>
 
-    <script src="data.js"></script>
-    <script>
+  <script src="data.js"></script>
+  <script>
+    const key = window.location.pathname.split('/')[1];
+    const data = archetypes[key];
+    if (!data) window.location.replace('/');
+    else {
+      document.title = `${data.title} · FUSION @ UCI`;
+      document.getElementById('result-icon').textContent = data.icon;
+      document.getElementById('result-title').textContent = data.title;
+      document.getElementById('result-subtitle').textContent = data.subtitle;
+      document.getElementById('result-description-text').textContent = data.description;
+      const list = document.getElementById('programs-list');
+      data.programs.forEach((program, i) => {
+        const item = document.createElement('div');
+        item.className = 'program-row';
+        item.innerHTML = `<span>0${i + 1}</span><strong>${program}</strong><i>↗</i>`;
+        list.appendChild(item);
+      });
+      const all = document.getElementById('all-types-grid');
+      Object.entries(archetypes).forEach(([type, info]) => {
+        const a = document.createElement('a');
+        a.href = `/${type}`;
+        a.className = `type-chip ${type === key ? 'current' : ''}`;
+        a.innerHTML = `<span>${info.icon}</span>${info.title.replace('The ', '')}`;
+        all.appendChild(a);
+      });
+    }
 
-        // Get archetype from URL path
-        function getArchetypeFromUrl() {
-            const path = window.location.pathname;
-            const archetype = path.split('/')[1]; // Gets 'builder', 'networker', etc.
-            return archetype in archetypes ? archetype : null;
-        }
-
-        // Populate the results page
-        function populateResults(archetype) {
-            const data = archetypes[archetype];
-            if (!data) return false;
-
-            // Update page title
-            document.title = `${data.title} - FUSION Personality Quiz`;
-
-            // Populate content
-            document.getElementById('result-icon').textContent = data.icon;
-            document.getElementById('result-title').textContent = data.title;
-            document.getElementById('result-subtitle').textContent = data.subtitle;
-            document.getElementById('result-description-text').textContent = data.description;
-
-            // Populate programs
-            const programsList = document.getElementById('programs-list');
-            programsList.innerHTML = '';
-            data.programs.forEach(program => {
-                const span = document.createElement('span');
-                span.className = 'program-tag';
-                span.textContent = program;
-                programsList.appendChild(span);
-            });
-
-            // Populate all types
-            const allTypesGrid = document.getElementById('all-types-grid');
-            allTypesGrid.innerHTML = '';
-            
-            console.log('Populating all types grid...'); // Debug log
-            
-            const createTypeCard = (key, data) => {
-                const card = document.createElement('div');
-                card.className = key === archetype ? 'all-type-card current' : 'all-type-card';
-                card.onclick = () => window.location.href = `/${key}`;
-                card.innerHTML = `<div class="all-type-icon">${data.icon}</div><div class="all-type-title">${data.title}</div>`;
-                console.log('Created card for:', key, data.title); // Debug log
-                return card;
-            };
-            
-            const entries = Object.entries(archetypes);
-            console.log('Archetype entries:', entries); // Debug log
-            
-            const firstRow = document.createElement('div');
-            const secondRow = document.createElement('div');
-            
-            firstRow.className = 'all-types-row first-row';
-            secondRow.className = 'all-types-row second-row';
-            
-            entries.slice(0, 3).forEach(([key, data]) => firstRow.appendChild(createTypeCard(key, data)));
-            entries.slice(3, 5).forEach(([key, data]) => secondRow.appendChild(createTypeCard(key, data)));
-            
-            allTypesGrid.append(firstRow, secondRow);
-            console.log('All types grid populated with', allTypesGrid.children.length, 'rows'); // Debug log
-
-            // Set for sharing
-            window.lastResult = {
-                title: data.title,
-                subtitle: data.subtitle
-            };
-
-            return true;
-        }
-
-        // Initialize page
-        window.addEventListener('DOMContentLoaded', function() {
-            const archetype = getArchetypeFromUrl();
-            if (!archetype || !populateResults(archetype)) {
-                // Invalid archetype, redirect to main quiz
-                window.location.href = '/';
-            }
-            
-            // Add event listener for dropdown toggle
-            const dropdownToggle = document.getElementById('dropdown-toggle-btn');
-            if (dropdownToggle) {
-                dropdownToggle.addEventListener('click', toggleAllTypes);
-                console.log('Dropdown toggle event listener added'); // Debug log
-            } else {
-                console.error('Dropdown toggle button not found'); // Debug log
-            }
-        });
-
-        function goToQuiz() {
-            window.location.href = '/';
-        }
-
-        function shareResult() {
-            if (navigator.share && window.lastResult) {
-                navigator.share({
-                    title: 'My FUSION Personality Quiz Result',
-                    text: `I'm ${window.lastResult.title}! Take the quiz at https://fusion-quiz.vercel.app/`,
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                // Fallback: copy to clipboard
-                const shareText = `I just took the FUSION Personality Quiz and I'm "${window.lastResult.title}!" \n\nTake the quiz at https://fusion-quiz.vercel.app/`;
-                
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(shareText).then(() => {
-                        alert('Result copied to clipboard! Share it with your friends!');
-                    }).catch(() => {
-                        fallbackCopyToClipboard(shareText);
-                    });
-                } else {
-                    fallbackCopyToClipboard(shareText);
-                }
-            }
-        }
-
-        function fallbackCopyToClipboard(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                document.execCommand('copy');
-                alert('Result copied to clipboard! Share it with your friends!');
-            } catch (err) {
-                alert('Unable to copy to clipboard. Please manually copy your result to share!');
-            }
-            
-            document.body.removeChild(textArea);
-        }
-
-        // Toggle dropdown function
-        function toggleAllTypes() {
-            console.log('toggleAllTypes called'); // Debug log
-            const dropdown = document.getElementById('all-types-dropdown');
-            const arrow = document.querySelector('.dropdown-arrow');
-            
-            console.log('dropdown element:', dropdown); // Debug log
-            console.log('arrow element:', arrow); // Debug log
-            
-            if (!dropdown || !arrow) {
-                console.error('Dropdown or arrow element not found');
-                return;
-            }
-            
-            // Simple toggle approach
-            const isCurrentlyVisible = dropdown.style.display === 'block';
-            
-            console.log('isCurrentlyVisible:', isCurrentlyVisible); // Debug log
-            console.log('current display:', dropdown.style.display); // Debug log
-            
-            if (isCurrentlyVisible) {
-                dropdown.style.display = 'none';
-                arrow.textContent = '▼';
-            } else {
-                dropdown.style.display = 'block';
-                arrow.textContent = '▲';
-            }
-            
-            console.log('new display:', dropdown.style.display); // Debug log
-        }
-
-        // Make functions globally available for inline onclick handlers
-        window.goToQuiz = goToQuiz;
-        window.shareResult = shareResult;
-    </script>
+    document.getElementById('share-btn').addEventListener('click', async () => {
+      const shareData = { title: `I'm ${data.title}!`, text: `I got ${data.title} on the FUSION @ UCI personality quiz.`, url: window.location.href };
+      try {
+        if (navigator.share) await navigator.share(shareData);
+        else if (navigator.clipboard) { await navigator.clipboard.writeText(window.location.href); document.getElementById('share-btn').textContent = 'Link copied ✓'; }
+      } catch (_) {}
+    });
+  </script>
 </body>
 </html>
