@@ -63,6 +63,9 @@ function showLesson(answer) {
   document.getElementById('lesson-kicker').textContent = lesson.kicker;
   document.getElementById('lesson-title').textContent = lesson.title;
   document.getElementById('lesson-body').textContent = lesson.body;
+  const photo = document.getElementById('lesson-photo');
+  photo.src = programPhotos[lesson.title] || '';
+  photo.alt = `${lesson.title} at FUSION`;
   const timer = document.getElementById('lesson-timer');
   timer.style.animation = 'none';
   void timer.offsetWidth;
