@@ -27,7 +27,7 @@ const questions = [
     answers: [
       { text: "Build cool things", icon: "🔧", weights: { builder: 3, academic: 1 }, lesson: { kicker: "BUILD WITH A TEAM", title: "FUSION Projects", body: "Join a year-long technical project team and showcase your work at FUSIONCon." } },
       { text: "Career opportunities", icon: "💼", weights: { networker: 3, academic: 1 }, lesson: { kicker: "PROFESSIONAL DEVELOPMENT", title: "Professional Development", body: "Meet industry professionals and alumni through networking events, workshops, and career programming." } },
-      { text: "Academic support", icon: "📚", weights: { academic: 3, connector: 1 }, lesson: { kicker: "ACADEMIC SUPPORT", title: "Academic Programs", body: "Find study spaces, academic resources, workshops, and other students taking the same classes." } },
+      { text: "Academic support", icon: "📚", weights: { academic: 5, connector: 1 }, lesson: { kicker: "ACADEMIC SUPPORT", title: "Academic Programs", body: "Find study spaces, academic resources, workshops, and other students taking the same classes." } },
       { text: "People to have fun with", icon: "🎉", weights: { social: 3, connector: 1 }, lesson: { kicker: "SOCIALS", title: "Socials", body: "From FU-Fridays to retreats and other events, there are plenty of ways to meet people outside class." } },
       { text: "A community I belong to", icon: "❤️", weights: { connector: 3, social: 1 }, lesson: { kicker: "FUSION FAMS", title: "FUSION Fams", body: "Join a smaller community within FUSION and build closer friendships throughout the year." } }
     ]
