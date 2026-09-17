@@ -10,45 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="photo-styles.css">
 </head>
 <body>
   <main class="app-shell result-shell">
-    <header class="brand-bar">
-      <a class="brand" href="/"><img src="fusion-logo.png" alt="" class="brand-logo"><span>FUSION @ UCI</span></a>
-      <span class="year-pill">YOUR ARCHETYPE</span>
-    </header>
-
-    <section class="result-hero">
-      <p class="overline">YOUR FUSION ARCHETYPE IS</p>
-      <div id="result-icon" class="result-icon"></div>
-      <h1 id="result-title"></h1>
-      <p id="result-subtitle" class="result-subtitle"></p>
-    </section>
-
-    <section class="result-grid">
-      <article class="result-about">
-        <p class="section-label">ABOUT YOUR ARCHETYPE</p>
-        <p id="result-description-text"></p>
-      </article>
-      <article class="starter-card">
-        <p class="section-label">PROGRAMS TO CHECK OUT</p>
-        <div id="programs-list" class="programs-list"></div>
-        <p class="booth-prompt"><strong>Show your result to someone at the booth</strong><br>and we can tell you more about these programs.</p>
-      </article>
-    </section>
-
-    <div class="result-actions">
-      <button id="share-btn" class="primary-btn" type="button">Share my archetype ↗</button>
-      <a class="secondary-btn" href="/">Retake quiz</a>
-    </div>
-
-    <details class="all-types-section">
-      <summary>See all five FUSION archetypes <span>+</span></summary>
-      <div id="all-types-grid" class="all-types-grid"></div>
-    </details>
+    <header class="brand-bar"><a class="brand" href="/"><img src="fusion-logo.png" alt="" class="brand-logo"><span>FUSION @ UCI</span></a><span class="year-pill">YOUR ARCHETYPE</span></header>
+    <section class="result-hero"><p class="overline">YOUR FUSION ARCHETYPE IS</p><div id="result-icon" class="result-icon"></div><h1 id="result-title"></h1><p id="result-subtitle" class="result-subtitle"></p></section>
+    <section class="result-grid"><article class="result-about"><p class="section-label">ABOUT YOUR ARCHETYPE</p><p id="result-description-text"></p></article><article class="starter-card"><p class="section-label">PROGRAMS TO CHECK OUT</p><div id="programs-list" class="programs-list"></div><p class="booth-prompt"><strong>Show your result to someone at the booth</strong><br>and we can tell you more about these programs.</p></article></section>
+    <div class="result-actions"><button id="share-btn" class="primary-btn" type="button">Share my archetype ↗</button><a class="secondary-btn" href="/">Retake quiz</a></div>
+    <details class="all-types-section"><summary>See all five FUSION archetypes <span>+</span></summary><div id="all-types-grid" class="all-types-grid"></div></details>
   </main>
   <footer class="site-footer"><span>Filipinx Undergraduate Scientist-Engineers</span><span>Made by Noah Tizon</span></footer>
-
   <script src="data.js"></script>
   <script>
     const key = window.location.pathname.split('/')[1];
@@ -69,22 +41,9 @@
         list.appendChild(item);
       });
       const all = document.getElementById('all-types-grid');
-      Object.entries(archetypes).forEach(([type, info]) => {
-        const a = document.createElement('a');
-        a.href = `/${type}`;
-        a.className = `type-chip ${type === key ? 'current' : ''}`;
-        a.innerHTML = `<span>${info.icon}</span>${info.title.replace('The ', '')}`;
-        all.appendChild(a);
-      });
+      Object.entries(archetypes).forEach(([type, info]) => { const a = document.createElement('a'); a.href = `/${type}`; a.className = `type-chip ${type === key ? 'current' : ''}`; a.innerHTML = `<span>${info.icon}</span>${info.title.replace('The ', '')}`; all.appendChild(a); });
     }
-
-    document.getElementById('share-btn').addEventListener('click', async () => {
-      const shareData = { title: `I'm ${data.title}!`, text: `I got ${data.title} on the FUSION @ UCI personality quiz.`, url: window.location.href };
-      try {
-        if (navigator.share) await navigator.share(shareData);
-        else if (navigator.clipboard) { await navigator.clipboard.writeText(window.location.href); document.getElementById('share-btn').textContent = 'Link copied ✓'; }
-      } catch (_) {}
-    });
+    document.getElementById('share-btn').addEventListener('click', async () => { const shareData = { title: `I'm ${data.title}!`, text: `I got ${data.title} on the FUSION @ UCI personality quiz.`, url: window.location.href }; try { if (navigator.share) await navigator.share(shareData); else if (navigator.clipboard) { await navigator.clipboard.writeText(window.location.href); document.getElementById('share-btn').textContent = 'Link copied ✓'; } } catch (_) {} });
   </script>
 </body>
 </html>
