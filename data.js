@@ -72,5 +72,5 @@ const CONFIG = {
     question2Entry: 'entry.494545951',
     question3Entry: 'entry.1056565161'
   },
-  quiz: { totalQuestions: 3, lessonDuration: 4000, revealDuration: 850 }
+  quiz: { totalQuestions: 3, lessonDuration: 6000, revealDuration: 850 }
 };
