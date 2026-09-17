@@ -37,7 +37,7 @@ function renderQuestion() {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'answer-btn';
-    button.innerHTML = `<span class="answer-index">0${index + 1}</span><span class="answer-icon">${answer.icon}</span><span class="answer-copy">${answer.text}</span><span class="answer-arrow">↗</span>`;
+    button.innerHTML = `<span class="answer-index">0${index + 1}</span><span class="answer-icon">${answer.icon}</span><span class="answer-copy">${answer.text}</span>`;
     button.addEventListener('click', () => selectAnswer(answer));
     container.appendChild(button);
   });
