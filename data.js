@@ -1,23 +1,23 @@
 const PHOTO_BASE = '/assets/photos/quizpics/';
 const programPhotos = {
-  'FUSION Projects': PHOTO_BASE + '1projects.png',
-  'Professional Development': PHOTO_BASE + 'prodev panel.JPG',
-  'Academic Programs': PHOTO_BASE + 'fusionconpresenty.png',
-  'Socials': PHOTO_BASE + 'karaoke social.png',
-  'FUSION Fams': PHOTO_BASE + 'fusion fam.JPG',
-  'FUSIONBook': PHOTO_BASE + 'pubsmedia workshop.png',
-  'Cultural Programming': PHOTO_BASE + 'tagalog word.png',
-  'FU-Fit & Intramurals': PHOTO_BASE + 'fusion fit.png',
-  'Alyansa': PHOTO_BASE + 'alyansapicnic.png',
-  'FUSION Mentorship': PHOTO_BASE + 'mentorship.png',
-  'Project Leadership': PHOTO_BASE + 'fusionconpresenty.png',
-  'FUSION Internship': PHOTO_BASE + 'intern class 1.png',
-  'Mentorship': PHOTO_BASE + 'mentorship.png',
-  'Publicity & Media': PHOTO_BASE + 'pubsmedia workshop.png',
-  'FUSIONCon': PHOTO_BASE + 'fusioncon.png',
-  'Alumni & Industry': PHOTO_BASE + 'fusioncon hosts.png',
-  'Study Hours': PHOTO_BASE + 'fusionconpresenty.png',
-  'FU-Fridays': PHOTO_BASE + 'karaoke social.png'
+  'FUSION Projects': PHOTO_BASE + '1projects.webp',
+  'Professional Development': PHOTO_BASE + 'prodev panel.webp',
+  'Academic Programs': PHOTO_BASE + 'fusionconpresenty.webp',
+  'Socials': PHOTO_BASE + 'karaoke social.webp',
+  'FUSION Fams': PHOTO_BASE + 'fusion fam.webp',
+  'FUSIONBook': PHOTO_BASE + 'pubsmedia workshop.webp',
+  'Cultural Programming': PHOTO_BASE + 'tagalog word.webp',
+  'FU-Fit & Intramurals': PHOTO_BASE + 'fusion fit.webp',
+  'Alyansa': PHOTO_BASE + 'alyansapicnic.webp',
+  'FUSION Mentorship': PHOTO_BASE + 'mentorship.webp',
+  'Project Leadership': PHOTO_BASE + 'fusionconpresenty.webp',
+  'FUSION Internship': PHOTO_BASE + 'intern class 1.webp',
+  'Mentorship': PHOTO_BASE + 'mentorship.webp',
+  'Publicity & Media': PHOTO_BASE + 'pubsmedia workshop.webp',
+  'FUSIONCon': PHOTO_BASE + 'fusioncon.webp',
+  'Alumni & Industry': PHOTO_BASE + 'fusioncon hosts.webp',
+  'Study Hours': PHOTO_BASE + 'fusionconpresenty.webp',
+  'FU-Fridays': PHOTO_BASE + 'karaoke social.webp'
 };
 
 const questions = [
