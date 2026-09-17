@@ -63,8 +63,9 @@
       const list = document.getElementById('programs-list');
       data.programs.forEach((program, i) => {
         const item = document.createElement('div');
-        item.className = 'program-row';
-        item.innerHTML = `<span>0${i + 1}</span><strong>${program}</strong>`;
+        item.className = 'program-row program-row-photo';
+        const photo = programPhotos[program];
+        item.innerHTML = `${photo ? `<div class="program-thumb"><img src="${photo}" alt="${program} at FUSION" loading="lazy" decoding="async"></div>` : ''}<div class="program-label"><span>0${i + 1}</span><strong>${program}</strong></div>`;
         list.appendChild(item);
       });
       const all = document.getElementById('all-types-grid');
