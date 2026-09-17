@@ -38,7 +38,7 @@ function renderQuestion() {
     button.type = 'button';
     button.className = 'answer-btn';
     button.innerHTML = `<span class="answer-index">0${index + 1}</span><span class="answer-icon">${answer.icon}</span><span class="answer-copy">${answer.text}</span>`;
-    button.addEventListener('click', () => selectAnswer(answer));
+    button.addEventListener('click', () => selectAnswer(answer, button));
     container.appendChild(button);
   });
 }
@@ -51,14 +51,20 @@ function recalculateScores() {
   });
 }
 
-function selectAnswer(answer) {
+function selectAnswer(answer, button) {
   userAnswers[currentQuestion] = answer;
   recalculateScores();
-  showLesson(answer);
+  document.querySelectorAll('.answer-btn').forEach(btn => {
+    btn.disabled = true;
+    if (btn !== button) btn.classList.add('answer-dimmed');
+  });
+  button.classList.add('answer-selected');
+  setTimeout(() => showLesson(answer), 240);
 }
 
 function showLesson(answer) {
   const lesson = answer.lesson;
+  document.getElementById('lesson-selection').textContent = `You picked: ${answer.text}`;
   document.getElementById('lesson-icon').textContent = answer.icon;
   document.getElementById('lesson-kicker').textContent = lesson.kicker;
   document.getElementById('lesson-title').textContent = lesson.title;
@@ -66,6 +72,10 @@ function showLesson(answer) {
   const photo = document.getElementById('lesson-photo');
   photo.src = programPhotos[lesson.title] || '';
   photo.alt = `${lesson.title} at FUSION`;
+  const card = document.getElementById('skip-lesson');
+  card.classList.remove('lesson-enter');
+  void card.offsetWidth;
+  card.classList.add('lesson-enter');
   const timer = document.getElementById('lesson-timer');
   timer.style.animation = 'none';
   void timer.offsetWidth;
