@@ -48,12 +48,17 @@
     </section>
 
     <section id="lesson-screen" class="screen lesson-screen" aria-live="polite">
-      <button id="skip-lesson" class="lesson-card" type="button" aria-label="Continue to next question">
-        <div class="lesson-number" id="lesson-icon"></div>
-        <p id="lesson-kicker" class="overline"></p>
-        <h2 id="lesson-title"></h2>
-        <p id="lesson-body"></p>
-        <div class="lesson-footer"><span>FUSION PROGRAM</span><span>Tap to continue →</span></div>
+      <button id="skip-lesson" class="lesson-card lesson-card-photo" type="button" aria-label="Continue to next question">
+        <div class="lesson-photo-wrap"><img id="lesson-photo" class="lesson-photo" src="" alt="" decoding="async"></div>
+        <div class="lesson-content">
+          <div class="lesson-number" id="lesson-icon"></div>
+          <div class="lesson-copy">
+            <p id="lesson-kicker" class="overline"></p>
+            <h2 id="lesson-title"></h2>
+            <p id="lesson-body"></p>
+          </div>
+          <div class="lesson-footer"><span>FUSION PROGRAM</span><span>Tap to continue →</span></div>
+        </div>
         <div id="lesson-timer" class="lesson-timer"></div>
       </button>
     </section>
